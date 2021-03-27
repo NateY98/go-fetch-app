@@ -41,14 +41,16 @@
     border-radius: 0;
 }
 
+// Dog search container styles
 .dog-search-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: auto;
     gap: 50px;
     margin: 70px 0;
 }
 
+// Dog search results styles
 .dog-search-results {
     display: flex;
     align-items: center;
@@ -57,12 +59,20 @@
     background: $second-bg-color2;
     flex-direction: column;
     text-align: center;
+    line-height: 1.5;
 }
 
+// Dog info container styles
 .dog-info-container {
     padding-top: 40px;
 }
 
+// Dog info list styles
 .dog-info-list {
     padding-top: 20px;
+}
+
+// Dog info container span styles
+.dog-info-container span {
+    font-weight: 700;
 }

@@ -89,9 +89,6 @@ audio:not([controls]) {
     display: none;
     height: 0;
 }
-img {
-    border-style: none;
-}
 svg:not(:root) {
     overflow: hidden;
 }
@@ -241,6 +238,12 @@ body {
     background: $primary-bg-color;
     font-family: $font-family;
     color: $primary-black-color;
+}
+
+// Styles for images
+img {
+    display: block;
+    max-width: 100%;
 }
 
 // Set all links to a text color of white. Also remove underline from links
