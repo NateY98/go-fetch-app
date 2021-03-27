@@ -1,37 +1,37 @@
-// // Make an API call for dogGifs from Giphy
-// const proxiedUrl = "https://api.giphy.com/v1/gifs/search";
-// // Create the proxy server and pass in parameters for the URL
-// const url = new URL("http://proxy.hackeryou.com");
-// url.search = new URLSearchParams({
-//     reqUrl: proxiedUrl,
-//     "params[api_key]": "wK0M8BDHxGDrY2EXflUHNYpjeRfpHXGZ",
-//     "params[q]": "dog",
-//     "params[limit]": 10,
-//     // proxyHeaders: {
-//     //     "Content-Type": "application/json",
-//     // },
-// });
-// // Fetch the data from URL
-// fetch(url)
-//     .then((response) => {
-//         // Return the JSON object
-//         return response.json();
-//     })
-//     .then((gifsFromApi) => {
-//         // Get the array of data from gifsFromApi
-//         const dogGifs = gifsFromApi.data;
-//         // Loop the array of dogGifs
-//         dogGifs.forEach((dogGif) => {
-//             // Create the HTML elements for the dogGif object to display on the page
-//             const gifsToDisplay = `<div>
-//                       <img src=${dogGif.images.original.url}/>
-//                       </div>`;
-//             //   Append the dogGif in the body element
-//             document
-//                 .querySelector("body")
-//                 .insertAdjacentHTML("beforeend", gifsToDisplay);
-//         });
-//     });
+// Make an API call for dogGifs from Giphy
+const proxiedUrl = "https://api.giphy.com/v1/gifs/search";
+// Create the proxy server and pass in parameters for the URL
+const url = new URL("http://proxy.hackeryou.com");
+url.search = new URLSearchParams({
+    reqUrl: proxiedUrl,
+    "params[api_key]": "wK0M8BDHxGDrY2EXflUHNYpjeRfpHXGZ",
+    "params[q]": "dog",
+    "params[limit]": 10,
+    // proxyHeaders: {
+    //     "Content-Type": "application/json",
+    // },
+});
+// Fetch the data from URL
+fetch(url)
+    .then((response) => {
+        // Return the JSON object
+        return response.json();
+    })
+    .then((gifsFromApi) => {
+        // Get the array of data from gifsFromApi
+        const dogGifs = gifsFromApi.data;
+        // Loop the array of dogGifs
+        dogGifs.forEach((dogGif) => {
+            // Create the HTML elements for the dogGif object to display on the page
+            const gifsToDisplay = `<div>
+                      <img src=${dogGif.images.original.url}/>
+                      </div>`;
+            //   Append the dogGif in the body element
+            document
+                .querySelector(".dog-gif")
+                .insertAdjacentHTML("beforeend", gifsToDisplay);
+        });
+    });
 
 // // Make API call from dog breed
 // const urlBreeds = new URL("https://api.thedogapi.com/v1/breeds/");
