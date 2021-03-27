@@ -56,13 +56,13 @@ fetch(urlBreeds)
                         <img src=${breed.image.url} alt="${breed.name}"/>
                     </div>
                     <div class="dog-info-container">
-                        <h3>${breed.name}</h3>
-                        <p>Origin: ${breed.origin}</p>
+                        <h2>${breed.name}</h2>
+                        <p><span>Origin:</span> ${breed.origin}</p>
                         <ul class="dog-info-list">
-                           <li class="dog-list-item">Role: ${breed["bred_for"]}</li>
-                            <li class="dog-list-item">Traits: ${breed.temperament}</li>
-                            <li class="dog-list-item">Average weight: ${breed.weight.metric} (kg)</li>
-                            <li class="dog-list-item">Life span: ${breed["life_span"]}</li>
+                            <li class="dog-list-item"><span>Role:</span> ${breed["bred_for"]}</li>
+                            <li class="dog-list-item"><span>Traits:</span> ${breed.temperament}</li>
+                            <li class="dog-list-item"><span>Average weight:</span> ${breed.weight.metric} (kg)</li>
+                            <li class="dog-list-item"><span>Life span:</span> ${breed["life_span"]}</li>
                         </ul>
                     </div>
                 </div>`;
@@ -89,13 +89,13 @@ fetch(urlBreeds)
                         <img src=${breed.image.url} alt="${breed.name}"/>
                     </div>
                     <div class="dog-info-container">
-                        <h3>${breed.name}</h3>
-                        <p>Origin: ${breed["country_code"]}</p>
+                        <h2>${breed.name}</h2>
+                        <p><span>Origin:</span> ${breed["country_code"]}</p>
                         <ul class="dog-info-list">
-                           <li class="dog-list-item">Role: ${breed["bred_for"]}</li>
-                            <li class="dog-list-item">Traits: ${breed.temperament}</li>
-                            <li class="dog-list-item">Average weight: ${breed.weight.metric} (kg)</li>
-                            <li class="dog-list-item">Life span: ${breed["life_span"]}</li>
+                            <li class="dog-list-item"><span>Role:</span> ${breed["bred_for"]}</li>
+                            <li class="dog-list-item"><span>Traits:</span> ${breed.temperament}</li>
+                            <li class="dog-list-item"><span>Average weight:</span> ${breed.weight.metric} (kg)</li>
+                            <li class="dog-list-item"><span>Life span:</span> ${breed["life_span"]}</li>
                         </ul>
                     </div>
                 </div>`;
