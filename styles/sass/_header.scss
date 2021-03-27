@@ -1,11 +1,41 @@
 // Style for wrapper in header
 .header-wrapper {
+    display: flex;
+    justify-content: space-between;
     max-width: 1500px;
     width: 95%;
-    margin: 0 auto;
+    margin: 0 auto; 
 }
 
 // Styles for header
 header {
     padding: 50px 0;
+    background: $second-bg-color;
+}
+
+// Remove margin from the grouping of lists in the main nav
+.header-list {
+    display: flex;
+    margin: 0;
+}
+
+// Spacing out the 
+.list-item {
+    margin: 0 20px;
+    font-size: 2rem;
+    color: $primary-white-color;
+}
+
+// Arranging the logo and main nav to fit on the page
+.header-nav {
+   display: flex;
+   position: relative;
+}
+
+// Styling for the hamburger menu button
+.button-hamburger{
+    background: $primary-white-color;
+    position: absolute;
+    right: 0;
+    visibility: hidden;
 }

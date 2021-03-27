@@ -285,13 +285,13 @@ body {
           box-sizing: border-box;
   padding: 0;
   margin: 0;
-  background: #595959;
+  background: #ebe8e8;
   font-family: "Space Mono", monospace;
-  color: #FFFFFF;
+  color: #000;
 }
 
 a {
-  color: #FFFFFF;
+  color: #000;
   text-decoration: none;
 }
 
@@ -305,6 +305,12 @@ ul {
 }
 
 .header-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   max-width: 1500px;
   width: 95%;
   margin: 0 auto;
@@ -312,4 +318,32 @@ ul {
 
 header {
   padding: 50px 0;
+  background: #595959;
+}
+
+.header-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0;
+}
+
+.list-item {
+  margin: 0 20px;
+  font-size: 2rem;
+  color: #FFFFFF;
+}
+
+.header-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+.button-hamburger {
+  background: #FFFFFF;
+  position: absolute;
+  right: 0;
+  visibility: hidden;
 }
