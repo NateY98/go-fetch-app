@@ -23,8 +23,8 @@ fetch(url)
         // Loop the array of dogGifs
         dogGifs.forEach((dogGif) => {
             // Create the HTML elements for the dogGif object to display on the page
-            const gifsToDisplay = `<div>
-                      <img src=${dogGif.images.original.url}/>
+            const gifsToDisplay = `<div class="gif-container">
+                      <img src=${dogGif.images.original.url} alt=""/>
                       </div>`;
             //   Append the dogGif in the body element
             document
