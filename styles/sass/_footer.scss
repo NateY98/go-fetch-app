@@ -4,14 +4,12 @@ footer {
 }
 
 .footer-wrapper {
-    max-width: 1500px;
-    width: 95%;
-    margin: 0 auto;
     padding: 20px 0;
     font-size: 0.8rem;
     text-align: center;
     color: $primary-white-color;
     line-height: 1.5;
+    @include wrapper;
 }
 
 .footer-wrapper a {

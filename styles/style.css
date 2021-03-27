@@ -328,8 +328,22 @@ header {
 
 .list-item {
   margin: 0 20px;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.list-item a {
+  background: #fc9236;
+  padding: 5px 8px;
+  border-radius: 5px;
   color: #FFFFFF;
+}
+
+.list-item a:hover,
+.list-item a:focus {
+  color: #000;
+  -webkit-transition: 200ms ease-in-out;
+  transition: 200ms ease-in-out;
 }
 
 .header-nav {
@@ -344,6 +358,44 @@ header {
   position: absolute;
   right: 0;
   visibility: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.main-wrapper {
+  max-width: 1500px;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.dog-gif {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+  place-items: center center;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+  padding: 50px 0;
+}
+
+.gif-container {
+  padding: 40px 20px;
+  border-radius: 10px;
+  background: #fc9236;
+}
+
+.gif-container:hover,
+.gif-container:focus {
+  -webkit-transform: scale(1.3);
+          transform: scale(1.3);
+  -webkit-transition: 200ms ease-in-out;
+  transition: 200ms ease-in-out;
 }
 
 footer {

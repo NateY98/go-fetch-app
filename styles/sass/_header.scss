@@ -2,9 +2,7 @@
 .header-wrapper {
     display: flex;
     justify-content: space-between;
-    max-width: 1500px;
-    width: 95%;
-    margin: 0 auto; 
+    @include wrapper;
 }
 
 // Styles for header
@@ -19,21 +17,35 @@ header {
     margin: 0;
 }
 
-// Spacing out the 
+// Spacing out the list items
 .list-item {
     margin: 0 20px;
-    font-size: 2rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+// links in the navigation menu styles
+.list-item a {
+    background: $second-bg-color2;
+    padding: 5px 8px;
+    border-radius: 5px;
     color: $primary-white-color;
+}
+
+.list-item a:hover,
+.list-item a:focus {
+    color: $primary-black-color;
+    transition: 200ms ease-in-out;
 }
 
 // Arranging the logo and main nav to fit on the page
 .header-nav {
-   display: flex;
-   position: relative;
+    display: flex;
+    position: relative;
 }
 
 // Styling for the hamburger menu button
-.button-hamburger{
+.button-hamburger {
     background: $primary-white-color;
     position: absolute;
     right: 0;

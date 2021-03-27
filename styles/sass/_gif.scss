@@ -1,0 +1,33 @@
+// GIFs styles
+img {
+    display: block;
+    max-width: 100%;
+}
+
+// Main section wrapper style
+.main-wrapper {
+    @include wrapper;
+}
+
+// Dog GIFs section style
+.dog-gif {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr 1fr;
+    place-items: center center;
+    column-gap: 10px;
+    padding: 50px 0;
+}
+
+// Dog GIFs container style
+.gif-container {
+    padding: 40px 20px;
+    border-radius: 10px;
+    background: $second-bg-color2;
+}
+
+.gif-container:hover,
+.gif-container:focus {
+    transform: scale(1.3);
+    transition: 200ms ease-in-out;
+}

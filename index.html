@@ -24,15 +24,27 @@
             <div class="header-wrapper">
                 <!-- Header logo starts here -->
                 <div class="header-logo">
-                    <a href="#">
+                    <a href="#" aria-label="Go to home page">
                         <img src="" alt="Page logo Go Dog Go" />
                     </a>
                 </div>
                 <!-- Header navigation menu starts here -->
                 <nav class="header-nav">
                     <ul class="header-list">
-                        <li class="list-item">GIFs</li>
-                        <li class="list-item">dog search</li>
+                        <li class="list-item">
+                            <a
+                                href="#dog-gif"
+                                aria-label="Go to dog gifs section"
+                                >gifs</a
+                            >
+                        </li>
+                        <li class="list-item">
+                            <a
+                                href="#dog-search"
+                                aria-label="Go to dog search section"
+                                >dog search</a
+                            >
+                        </li>
                     </ul>
                     <button
                         class="button-hamburger"
@@ -52,12 +64,12 @@
                 <h1>Welcome to our dog app!</h1>
 
                 <!-- section to hold appended results from api for dog gif -->
-                <section class="dog-gif">
+                <section class="dog-gif" id="dog-gif">
                     <!-- append results from GIF -->
                 </section>
 
                 <!-- section for searching dog information -->
-                <section class="dog-search">
+                <section class="dog-search" id="dog-search">
                     <!-- form for dropdown selector for dog origin -->
                     <form action="">
                         <!-- label for the dropdown select form -->
