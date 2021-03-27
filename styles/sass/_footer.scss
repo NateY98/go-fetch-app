@@ -1,4 +1,5 @@
 footer {
+    margin-top: 50px;
     background: #595959;
 }
 
@@ -6,8 +7,18 @@ footer {
     max-width: 1500px;
     width: 95%;
     margin: 0 auto;
-    padding-top: 40px;
+    padding: 20px 0;
     font-size: 0.8rem;
     text-align: center;
+    color: $primary-white-color;
     line-height: 1.5;
+}
+
+.footer-wrapper a {
+    color: $primary-white-color;
+}
+
+.footer-wrapper a:hover,
+.footer-wrapper:focus {
+    color: $second-color1;
 }
