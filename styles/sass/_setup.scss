@@ -201,6 +201,8 @@ template {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
 .visuallyHidden:not(:focus):not(:active) {
@@ -236,9 +238,6 @@ html {
 
 // Set font family and added background and font color. Also set reset box sizing
 body {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
     background: $primary-bg-color;
     font-family: $font-family;
     color: $primary-white-color;
@@ -260,4 +259,3 @@ a:focus {
 ul {
     list-style-type: none;
 }
-

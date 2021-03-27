@@ -246,6 +246,8 @@ template {
 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 .visuallyHidden:not(:focus):not(:active) {
@@ -281,10 +283,6 @@ html {
 }
 
 body {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  padding: 0;
-  margin: 0;
   background: #595959;
   font-family: "Space Mono", monospace;
   color: #FFFFFF;
@@ -312,4 +310,18 @@ ul {
 
 header {
   padding: 50px 0;
+}
+
+footer {
+  background: #595959;
+}
+
+.footer-wrapper {
+  max-width: 1500px;
+  width: 95%;
+  margin: 0 auto;
+  padding-top: 40px;
+  font-size: 0.8rem;
+  text-align: center;
+  line-height: 1.5;
 }
