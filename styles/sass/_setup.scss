@@ -228,3 +228,26 @@ template {
     clip: rect(0 0 0 0);
     overflow: hidden;
 }
+
+body {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    background: $primary-bg-color;
+    font-family: $font-family;
+    color: $primary-white-color;
+}
+
+a {
+    color: $primary-white-color;
+    text-decoration: none;
+}
+
+a:hover,
+a:focus {
+    color: $second-color1;
+}
+
+ul {
+    list-style-type: none;
+}
