@@ -100,7 +100,7 @@ input,
 optgroup,
 select,
 textarea {
-    font-family: sans-serif;
+    font-family: $font-family;
     font-size: 100%;
     line-height: 1.15;
     margin: 0;
@@ -259,3 +259,21 @@ a:focus {
 ul {
     list-style-type: none;
 }
+
+// Make the options in the dropdown bold
+option {
+    font-weight: 700;
+}
+
+// Basic button styling 
+.button {
+    @include button-styles;
+}
+
+// Basic hover state for buttons
+// Hover and focus state for the hamburger
+.button:hover,
+.button:focus {
+   @include button-hover;
+}
+

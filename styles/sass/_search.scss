@@ -1,0 +1,41 @@
+// Styles for seconday nav to search dog info
+.form-container {
+    display: flex;
+    justify-content: space-between;
+    visibility: hidden;
+}
+
+// Make the dropdwon selector sit under the title
+.dropdown-form {
+    display: flex;
+    flex-direction: column;
+}
+
+// Dog general select styles
+.dog-select {
+    width: 100%;
+    display: block;
+    padding: 10px 50px 10px 10px;
+    margin-top: 10px;
+    appearance: none;
+    border: 1px solid black;
+    background: $second-bg-color2 url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) 95% center no-repeat;
+}
+
+// Styles for the labels
+.dog-name-label {
+    padding: 12px 10px;
+}
+
+.dog-origin-label {
+    font-size: 1.2rem;
+}
+
+// Styles for the search button
+.button-search {
+    padding:15px 10px;
+    margin-left: -17px;
+    margin-top: 0;
+    border: 1px solid black;
+    border-radius: 0;
+}

@@ -46,8 +46,12 @@ header {
 
 // Styling for the hamburger menu button
 .button-hamburger {
-    background: $primary-white-color;
     position: absolute;
     right: 0;
+    top: -11px;
     visibility: hidden;
+    margin: 0 20px;
+    font-size: 1.5rem;
+    padding: 10px 25px;
 }
+
