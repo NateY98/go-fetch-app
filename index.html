@@ -47,7 +47,7 @@
                         </li>
                     </ul>
                     <button
-                        class="button-hamburger"
+                        class="button button-hamburger"
                         aria-label="Button to open the navigation menu"
                     >
                         <i aria-hidden class="fas fa-paw"></i>
@@ -70,42 +70,45 @@
 
                 <!-- section for searching dog information -->
                 <section class="dog-search" id="dog-search">
-                    <!-- form for dropdown selector for dog origin -->
-                    <form action="">
-                        <!-- label for the dropdown select form -->
-                        <label for="dog-origin">Choose dog origin:</label>
-                        <!-- the dropdown selector -->
-                        <select id="dog-origin" name="dog-origin">
-                            <!-- more options can be added based on how many locations -->
-                            <option value="" disabled>Select</option>
-                            <option value="US">United States</option>
-                            <option value="AU">Australia</option>
-                        </select>
-                    </form>
+                    <div class="form-container">
+                        <!-- form for dropdown selector for dog origin -->
+                        <form action="" class="dropdown-form">
+                            <!-- label for the dropdown select form -->
+                            <label for="dog-origin" class="dog-origin-label">Choose dog origin:</label>
+                            <!-- the dropdown selector -->
+                            <select id="dog-origin" name="dog-origin" class="dog-select">
+                                <!-- more options can be added based on how many locations -->
+                                <option value="select" disabled selected>-- Please choose an option --</option>
+                                <option value="US">United States</option>
+                                <option value="AU">Australia</option>
+                            </select>
+                        </form>
 
-                    <!-- form for searching dog names -->
-                    <form action="">
-                        <!-- hidden label for the search bar (screen reader only) -->
-                        <label for="dog-name-search" class="sr-only"
-                            >Search for dog information:</label
-                        >
-                        <!-- text input for search bar for dog names -->
-                        <input
-                            id="dog-name-search"
-                            type="text"
-                            name="dog-name-search"
-                            placeholder="Search dog name..."
-                        />
-                        <!-- submit button for search dog name search bar -->
-                        <button class="button-submit" type="submit">
-                            Submit
-                        </button>
-                    </form>
-                </section>
+                        <!-- form for searching dog names -->
+                        <form action="">
+                            <!-- hidden label for the search bar (screen reader only) -->
+                            <label for="dog-name-label" class="sr-only"
+                                >Search for dog information:</label
+                            >
+                            <!-- text input for search bar for dog names -->
+                            <input
+                                id="dog-name-search"
+                                class="dog-name-search"
+                                type="text"
+                                name="dog-name-search"
+                                placeholder="Search dog name..."
+                            />
+                            <!-- submit button for search dog name search bar -->
+                            <button class="button button-search" type="submit">
+                                Search
+                            </button>
+                        </form>
+                    </div>
 
-                <!-- section to hold dog search results -->
-                <section class="dog-search-results">
-                    <!-- append results from dog search here -->
+                        <!-- section to hold dog search results -->
+                    <div class="dog-search-results">
+                        <!-- append results from dog search here -->
+                    </div>
                 </section>
             </div>
         </main>

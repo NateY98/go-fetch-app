@@ -1,9 +1,9 @@
 // The global CSS custom variables
 @import "variables";
-// The general style setup
-@import "setup";
 // The functions to keep the code dry
 @import "mixins";
+// The general style setup
+@import "setup";
 // Header of the page styles
 @import "header";
 // Dog gifs styles section
