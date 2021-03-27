@@ -246,6 +246,8 @@ template {
 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 .visuallyHidden:not(:focus):not(:active) {
@@ -281,10 +283,6 @@ html {
 }
 
 body {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  padding: 0;
-  margin: 0;
   background: #ebe8e8;
   font-family: "Space Mono", monospace;
   color: #000;
@@ -346,4 +344,29 @@ header {
   position: absolute;
   right: 0;
   visibility: hidden;
+}
+
+footer {
+  margin-top: 50px;
+  background: #595959;
+}
+
+.footer-wrapper {
+  max-width: 1500px;
+  width: 95%;
+  margin: 0 auto;
+  padding: 20px 0;
+  font-size: 0.8rem;
+  text-align: center;
+  color: #FFFFFF;
+  line-height: 1.5;
+}
+
+.footer-wrapper a {
+  color: #FFFFFF;
+}
+
+.footer-wrapper a:hover,
+.footer-wrapper:focus {
+  color: #ffa200;
 }
