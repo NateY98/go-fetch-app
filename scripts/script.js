@@ -7,9 +7,6 @@ url.search = new URLSearchParams({
     "params[api_key]": "wK0M8BDHxGDrY2EXflUHNYpjeRfpHXGZ",
     "params[q]": "dog",
     "params[limit]": 10,
-    // proxyHeaders: {
-    //     "Content-Type": "application/json",
-    // },
 });
 // Fetch the data from URL
 fetch(url)
@@ -32,44 +29,101 @@ fetch(url)
                 .insertAdjacentHTML("beforeend", gifsToDisplay);
         });
     });
+// Make API call from dog breed
+const urlBreeds = new URL("https://api.thedogapi.com/v1/breeds/");
+// Limit the result of search up to 50 objects
+urlBreeds.search = new URLSearchParams({
+    limit: 50,
+});
+// Fetch the data from urlBreeds
+fetch(urlBreeds)
+    // Return JSON object
+    .then((response) => response.json())
+    .then((breedsFromApi) => {
+        // loop through the object of breeds array
+        breedsFromApi.forEach((breed) => {
+            // test if origin or country_code is not undefined
+            if (
+                breed.origin !== undefined &&
+                breed.origin !== "" &&
+                breed.origin === "United Kingdom, England"
+            ) {
+                console.log(breed);
+                // Create the HTML elements for the dogOrigin object to display on the page
+                const originToDisplay = `
+                <div class="dog-search-results">
+                    <div class="dog-image">
+                        <img src=${breed.image.url} alt="${breed.name}"/>
+                    </div>
+                    <div class="dog-info-container">
+                        <h3>${breed.name}</h3>
+                        <p>Origin: ${breed.origin}</p>
+                        <ul class="dog-info-list">
+                           <li class="dog-list-item">Role: ${breed["bred_for"]}</li>
+                            <li class="dog-list-item">Traits: ${breed.temperament}</li>
+                            <li class="dog-list-item">Average weight: ${breed.weight.metric} (kg)</li>
+                            <li class="dog-list-item">Life span: ${breed["life_span"]}</li>
+                        </ul>
+                    </div>
+                </div>`;
+                //   Append the dogGif in the body element
+                document
+                    .querySelector(".dog-search-container")
+                    .insertAdjacentHTML("beforeend", originToDisplay);
+            }
 
-// // Make API call from dog breed
-// const urlBreeds = new URL("https://api.thedogapi.com/v1/breeds/");
-// // Limit the result of search up to 50 objects
-// urlBreeds.search = new URLSearchParams({
-//     limit: 50,
-// });
-// // Fetch the data from urlBreeds
-// fetch(urlBreeds)
-//     // Return JSON object
-//     .then((response) => response.json())
-//     .then((breedsFromApi) => {
-//         // loop through the object of breeds array
-//         breedsFromApi.forEach((breed) => {
-//             // test if the breed_group in the breed object is match the search
-//             if (breed["breed_group"] === "Terrier") {
-//                 console.log(breed);
-//             }
-//             // test if the breed_name in the breed object is not undefined or empty and get the result to make the dogGroup API call
-//             if (breed.name !== undefined && breed.name !== "") {
-//                 const urlDogGroup = new URL(
-//                     "https://api.thedogapi.com/v1/breeds/search"
-//                 );
-//                 // Pass in the breed.name as the parameter for the urlDogGroup search
-//                 urlDogGroup.search = new URLSearchParams({
-//                     q: `${breed.name}`,
-//                 });
-//                 fetch(urlDogGroup)
-//                     // Return the JSON object
-//                     .then((response) => response.json())
-//                     .then((dogGroupsFromApi) => {
-//                         // Filter the array of dogGroupsFromApi to check if the country_code match
-//                         dogGroupsFromApi.filter((dogGroup) => {
-//                             if (dogGroup["country_code"] === "US") {
-//                                 console.log(dogGroup);
-//                             }
-//                         });
-//                     });
-//             }
-//         });
-//     });
+// ---------------------
+            else if (
+                breed["country_code"] !== undefined &&
+                breed["country_code"] !== "" &&
+                breed["country_code"] === "US"
+            ) {
+                console.log(breed);
+                // document
+                // .querySelector(".dog-search-container").innerHTML = "";
+                
+                // Create the HTML elements for the dogOrigin object to display on the page
+                const originToDisplay = `
+                <div class="dog-search-results">
+                    <div class="dog-image">
+                        <img src=${breed.image.url} alt="${breed.name}"/>
+                    </div>
+                    <div class="dog-info-container">
+                        <h3>${breed.name}</h3>
+                        <p>Origin: ${breed["country_code"]}</p>
+                        <ul class="dog-info-list">
+                           <li class="dog-list-item">Role: ${breed["bred_for"]}</li>
+                            <li class="dog-list-item">Traits: ${breed.temperament}</li>
+                            <li class="dog-list-item">Average weight: ${breed.weight.metric} (kg)</li>
+                            <li class="dog-list-item">Life span: ${breed["life_span"]}</li>
+                        </ul>
+                    </div>
+                </div>`;
+                //   Append the dogGif in the body element
+                document
+                    .querySelector(".dog-search-container")
+                    .insertAdjacentHTML("beforeend", originToDisplay);
+            }
+            // test if the breed_name in the breed object is not undefined or empty and get the result to make the dogGroup API call
+            if (breed.name !== undefined && breed.name !== "") {
+                const urlDogGroup = new URL(
+                    "https://api.thedogapi.com/v1/breeds/search"
+                );
+                // Pass in the breed.name as the parameter for the urlDogGroup search
+                urlDogGroup.search = new URLSearchParams({
+                    q: `${breed.name}`,
+                });
+                fetch(urlDogGroup)
+                    // Return the JSON object
+                    .then((response) => response.json())
+                    .then((dogGroupsFromApi) => {
+                        // Filter the array of dogGroupsFromApi to check if the country_code match
+                        dogGroupsFromApi.filter((dogGroup) => {
+                            if (dogGroup["country_code"] === "US") {
+                                // console.log(dogGroup);
+                            }
+                        });
+                    });
+            }
+        });
+    });
