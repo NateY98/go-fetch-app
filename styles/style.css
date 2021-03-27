@@ -275,3 +275,41 @@ template {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
+html {
+  font-size: 125%;
+}
+
+body {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  background: #595959;
+  font-family: "Space Mono", monospace;
+  color: #FFFFFF;
+}
+
+a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: #ffa200;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.header-wrapper {
+  max-width: 1500px;
+  width: 95%;
+  margin: 0 auto;
+}
+
+header {
+  padding: 50px 0;
+}
