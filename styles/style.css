@@ -295,7 +295,7 @@ a {
 
 a:hover,
 a:focus {
-  color: #ffa200;
+  color: #fc9236;
 }
 
 ul {
@@ -336,7 +336,7 @@ header {
   background: #fc9236;
   padding: 5px 8px;
   border-radius: 5px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .list-item a:hover,
@@ -354,7 +354,7 @@ header {
 }
 
 .button-hamburger {
-  background: #FFFFFF;
+  background: #ffffff;
   position: absolute;
   right: 0;
   visibility: hidden;
@@ -404,21 +404,21 @@ footer {
 }
 
 .footer-wrapper {
-  max-width: 1500px;
-  width: 95%;
-  margin: 0 auto;
   padding: 20px 0;
   font-size: 0.8rem;
   text-align: center;
-  color: #FFFFFF;
+  color: #ffffff;
   line-height: 1.5;
+  max-width: 1500px;
+  width: 95%;
+  margin: 0 auto;
 }
 
 .footer-wrapper a {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .footer-wrapper a:hover,
 .footer-wrapper:focus {
-  color: #ffa200;
+  color: #fc9236;
 }
