@@ -276,6 +276,10 @@ template {
   overflow: hidden;
 }
 
+html {
+  font-size: 125%;
+}
+
 body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -298,4 +302,14 @@ a:focus {
 
 ul {
   list-style-type: none;
+}
+
+.header-wrapper {
+  max-width: 1500px;
+  width: 95%;
+  margin: 0 auto;
+}
+
+header {
+  padding: 50px 0;
 }

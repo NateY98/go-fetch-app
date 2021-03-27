@@ -229,6 +229,12 @@ template {
     overflow: hidden;
 }
 
+// Make font size for whole page 20px
+html {
+    font-size: 125%;
+}
+
+// Set font family and added background and font color. Also set reset box sizing
 body {
     box-sizing: border-box;
     padding: 0;
@@ -238,16 +244,20 @@ body {
     color: $primary-white-color;
 }
 
+// Set all links to a text color of white. Also remove underline from links
 a {
     color: $primary-white-color;
     text-decoration: none;
 }
 
+// Set hover and focus state styles
 a:hover,
 a:focus {
     color: $second-color1;
 }
 
+// Remove dots from lists
 ul {
     list-style-type: none;
 }
+
