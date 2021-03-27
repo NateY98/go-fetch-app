@@ -428,7 +428,6 @@ img {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  visibility: hidden;
 }
 
 .dropdown-form {
@@ -453,12 +452,12 @@ img {
   background: #fc9236 url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) 95% center no-repeat;
 }
 
-.dog-name-label {
-  padding: 12px 10px;
-}
-
 .dog-origin-label {
   font-size: 1.2rem;
+}
+
+.dog-name-search {
+  padding: 12px 10px;
 }
 
 .button-search {

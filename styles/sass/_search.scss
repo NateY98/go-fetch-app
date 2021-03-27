@@ -2,7 +2,7 @@
 .form-container {
     display: flex;
     justify-content: space-between;
-    visibility: hidden;
+    // visibility: hidden;
 }
 
 // Make the dropdwon selector sit under the title
@@ -23,12 +23,13 @@
 }
 
 // Styles for the labels
-.dog-name-label {
-    padding: 12px 10px;
-}
-
 .dog-origin-label {
     font-size: 1.2rem;
+}
+
+// styles for text input dog search
+.dog-name-search{
+    padding: 12px 10px;
 }
 
 // Styles for the search button
