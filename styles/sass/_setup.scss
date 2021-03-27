@@ -240,12 +240,12 @@ html {
 body {
     background: $primary-bg-color;
     font-family: $font-family;
-    color: $primary-white-color;
+    color: $primary-black-color;
 }
 
 // Set all links to a text color of white. Also remove underline from links
 a {
-    color: $primary-white-color;
+    color: $primary-black-color;
     text-decoration: none;
 }
 
