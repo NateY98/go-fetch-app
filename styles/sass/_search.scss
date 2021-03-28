@@ -2,6 +2,7 @@
 .form-container {
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
     // visibility: hidden;
 }
 
@@ -19,7 +20,9 @@
     margin-top: 10px;
     appearance: none;
     border: 1px solid black;
-    background: $second-bg-color2 url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) 95% center no-repeat;
+    background: $second-bg-color2
+        url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png)
+        95% center no-repeat;
 }
 
 // Styles for the labels
@@ -28,16 +31,15 @@
 }
 
 // styles for text input dog search
-.dog-name-search{
-    padding: 12px 10px;
+.dog-name-search {
+    padding: 9.5px;
 }
 
 // Styles for the search button
 .button-search {
-    padding:15px 10px;
+    padding: 10.5px;
     margin-left: -17px;
-    margin-top: 0;
-    border: 1px solid black;
+    border: 1px solid $primary-black-color;
     border-radius: 0;
 }
 
