@@ -5,6 +5,8 @@ const dogApp = {};
 //////////////////////////////////////////Global variables//////////////////////////////////////////////
 dogApp.dogGifContainer = document.querySelector(".dog-gif");
 dogApp.dogSearchContainer = document.querySelector(".dog-search-container");
+dogApp.selectElement = document.querySelector(".dog-select");
+dogApp.optionElements = document.querySelectorAll("option");
 
 dogApp.giphyApiUrl = "https://api.giphy.com/v1/gifs/search";
 dogApp.giphyApiKey = "wK0M8BDHxGDrY2EXflUHNYpjeRfpHXGZ";
@@ -90,7 +92,7 @@ dogApp.getGif = () => {
                 dogApp.dogGifsResults(dogGif.images.original.url, dogGif.title);
             });
         });
-}
+};
 
 // Function to get the dog breed and name from API
 dogApp.getDogBreed = () => {
@@ -161,12 +163,11 @@ dogApp.getDogBreed = () => {
                 }
             });
         });
-}
-
+};
 
 dogApp.init = () => {
     dogApp.getDogBreed();
     dogApp.getGif();
-}
+};
 
 dogApp.init();
