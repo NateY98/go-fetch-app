@@ -54,7 +54,7 @@ dogApp.dogSearchResults = (
                                 dogTraits ? dogTraits : "N/A"
                             }</li>
                             <li class="dog-list-item"><span>Average weight:</span> ${
-                                dogWeight ? dogLife : "N/A"
+                                dogWeight ? dogWeight : "N/A"
                             } (kg)</li>
                             <li class="dog-list-item"><span>Life span:</span> ${
                                 dogLife ? dogLife : "N/A"
