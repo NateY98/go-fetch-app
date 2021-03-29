@@ -268,7 +268,7 @@ option {
     font-weight: 700;
 }
 
-// Basic button styling 
+// Basic button styling
 .button {
     @include button-styles;
 }
@@ -277,6 +277,15 @@ option {
 // Hover and focus state for the hamburger
 .button:hover,
 .button:focus {
-   @include button-hover;
+    @include button-hover;
 }
 
+// Error message styling
+.error-message {
+    margin-top: 40px;
+    padding: 20px 0;
+    border-radius: 5px;
+    background: $second-bg-color1;
+    color: $primary-white-color;
+    text-align: center;
+}
