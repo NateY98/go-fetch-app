@@ -14,6 +14,8 @@ dogApp.dogSearchButton = document.querySelector(".dog-search-button");
 dogApp.dogGifButton = document.querySelector(".gif-button");
 dogApp.dogSearchSection = document.getElementById("dog-search");
 dogApp.dogGifSection = document.getElementById("dog-gif");
+dogApp.errorGifContainer = document.querySelector(".error-gif-container");
+dogApp.errorSearchContainer = document.querySelector(".error-search-container");
 
 // Store the giphy API info in dogApp object
 dogApp.giphyApiUrl = "https://api.giphy.com/v1/gifs/search";
@@ -29,19 +31,19 @@ dogApp.dogImageApiUrl = "https://api.thedogapi.com/v1/images/";
 
 // Display the dog-search section and hide the GIF section when "DOG SEARCH" button is clicked
 dogApp.openDogSearch = () => {
-    dogApp.dogSearchButton.addEventListener("click", function(e){
+    dogApp.dogSearchButton.addEventListener("click", function (e) {
         dogApp.dogSearchSection.classList.remove("dog-search-toggle");
         dogApp.dogGifSection.classList.add("dog-gif-toggle");
-    })
-}
+    });
+};
 
 // Display the GIF section and hide the dog-search section when "GIF" button is clicked
 dogApp.openGif = () => {
-    dogApp.dogGifButton.addEventListener("click", function(e){
+    dogApp.dogGifButton.addEventListener("click", function (e) {
         dogApp.dogSearchSection.classList.add("dog-search-toggle");
         dogApp.dogGifSection.classList.remove("dog-gif-toggle");
-    })
-}
+    });
+};
 
 // Function to display dog gif result on the page
 dogApp.dogGifsResults = (imageUrl, title) => {
@@ -108,7 +110,7 @@ dogApp.errorMessage = function (position, message) {
     const errorToDisplay = `
     <p class="error-message">${message}</p>
     `;
-    position.insertAdjacentHTML("beforebegin", errorToDisplay);
+    position.insertAdjacentHTML("beforeend", errorToDisplay);
 };
 
 // Function to get the dog GIF's from API
@@ -133,6 +135,8 @@ dogApp.getGif = () => {
             return response.json();
         })
         .then((gifsFromApi) => {
+            // Empty the innerHTML of errorGifContainer before displaying the new results
+            dogApp.errorGifContainer.innerHTML = "";
             // Get the array of data from gifsFromApi
             const dogGifs = gifsFromApi.data;
             // Loop the array of dogGifs
@@ -144,7 +148,7 @@ dogApp.getGif = () => {
         // Catch the error and display the message to the UI
         .catch((error) =>
             dogApp.errorMessage(
-                dogApp.dogGifContainer,
+                dogApp.errorGifContainer,
                 ` ${error.message} Try again!`
             )
         );
@@ -225,7 +229,7 @@ dogApp.getDogBreed = () => {
         // Catch the error and display the message to the UI
         .catch((error) =>
             dogApp.errorMessage(
-                dogApp.dogSearchContainer,
+                dogApp.errorSearchContainer,
                 ` ${error.message} Try again!`
             )
         );
@@ -277,7 +281,7 @@ dogApp.getDogName = (url) => {
                 });
             } else {
                 dogApp.errorMessage(
-                    dogApp.dogSearchContainer,
+                    dogApp.errorSearchContainer,
                     "Your search not found! Try again!"
                 );
             }
@@ -285,7 +289,7 @@ dogApp.getDogName = (url) => {
         // Catch the error and display the message to the UI
         .catch((error) =>
             dogApp.errorMessage(
-                dogApp.dogSearchContainer,
+                dogApp.errorSearchContainer,
                 ` ${error.message} Try again!`
             )
         );
@@ -296,7 +300,9 @@ dogApp.searchDogEvent = () => {
     dogApp.searchButton.addEventListener("click", function (e) {
         // Prevent the page from refeshing
         e.preventDefault();
-        // Empty the innerText of dogSearchContainer before displaying the new results
+        // Empty the innerHTML of errorSearchContainer before displaying the new results
+        dogApp.errorSearchContainer.innerHTML = "";
+        // Empty the innerHTML of dogSearchContainer before displaying the new results
         dogApp.dogSearchContainer.innerHTML = "";
         // Make an dogNameSearchUrl API call base
         const dogNameSearchUrl = new URL(dogApp.dogSearchApiUrl);
@@ -319,10 +325,10 @@ dogApp.init = () => {
     dogApp.getDogBreed();
     // Calling the serachDogEvent function
     dogApp.searchDogEvent();
-// Calling the openDogSearch function
+    // Calling the openDogSearch function
     dogApp.openDogSearch();
     // Calling the openGif function
     dogApp.openGif();
-}
+};
 
 dogApp.init();
