@@ -10,6 +10,10 @@ dogApp.selectElement = document.querySelector(".dog-select");
 dogApp.optionElements = document.querySelectorAll("option");
 dogApp.searchInput = document.querySelector(".dog-name-search");
 dogApp.searchButton = document.querySelector(".button-search");
+dogApp.dogSearchButton = document.querySelector(".dog-search-button");
+dogApp.dogGifButton = document.querySelector(".gif-button");
+dogApp.dogSearchSection = document.getElementById("dog-search");
+dogApp.dogGifSection = document.getElementById("dog-gif");
 
 // Store the giphy API info in dogApp object
 dogApp.giphyApiUrl = "https://api.giphy.com/v1/gifs/search";
@@ -22,6 +26,23 @@ dogApp.dogImageApiUrl = "https://api.thedogapi.com/v1/images/";
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////Functions//////////////////////////////////////////////////////
+
+// Display the dog-search section and hide the GIF section when "DOG SEARCH" button is clicked
+dogApp.openDogSearch = () => {
+    dogApp.dogSearchButton.addEventListener("click", function(e){
+        dogApp.dogSearchSection.classList.remove("dog-search-toggle");
+        dogApp.dogGifSection.classList.add("dog-gif-toggle");
+    })
+}
+
+// Display the GIF section and hide the dog-search section when "GIF" button is clicked
+dogApp.openGif = () => {
+    dogApp.dogGifButton.addEventListener("click", function(e){
+        dogApp.dogSearchSection.classList.add("dog-search-toggle");
+        dogApp.dogGifSection.classList.remove("dog-gif-toggle");
+    })
+}
+
 // Function to display dog gif result on the page
 dogApp.dogGifsResults = (imageUrl, title) => {
     // Create the HTML elements for the dogGif object to display on the page
@@ -298,6 +319,10 @@ dogApp.init = () => {
     dogApp.getDogBreed();
     // Calling the serachDogEvent function
     dogApp.searchDogEvent();
-};
+// Calling the openDogSearch function
+    dogApp.openDogSearch();
+    // Calling the openGif function
+    dogApp.openGif();
+}
 
 dogApp.init();
