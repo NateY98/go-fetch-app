@@ -65,6 +65,10 @@
                 <!-- title h1 to welcome user to the page -->
                 <h1>Welcome to our dog app!</h1>
 
+                <!-- section to hold error message here -->
+                <div class="error-gif-container">
+                    <!-- append error message here -->
+                </div>
                 <!-- section to hold appended results from api for dog gif -->
                 <section class="dog-gif" id="dog-gif">
                     <!-- append results from GIF -->
@@ -76,15 +80,27 @@
                         <!-- form for dropdown selector for dog origin -->
                         <form action="" class="dropdown-form">
                             <!-- label for the dropdown select form -->
-                            <label for="dog-origin" class="dog-origin-label">Choose dog origin:</label>
+                            <label for="dog-origin" class="dog-origin-label"
+                                >Choose dog origin:</label
+                            >
                             <!-- the dropdown selector -->
-                            <select id="dog-origin" name="dog-origin" class="dog-select">
-                                <option value="select" disabled selected>-- Please choose an option --</option>
-                                <option value="Afghanistan, Iran, Pakistan">Afghanistan</option>
+                            <select
+                                id="dog-origin"
+                                name="dog-origin"
+                                class="dog-select"
+                            >
+                                <option value="select" disabled selected>
+                                    -- Please choose an option --
+                                </option>
+                                <option value="Afghanistan, Iran, Pakistan">
+                                    Afghanistan
+                                </option>
                                 <option value="AU">Australia</option>
                                 <option value="Germany, France">France</option>
                                 <option value="Germany, France">Germany</option>
-                                <option value="United Kingdom, England">United Kingdom</option>
+                                <option value="United Kingdom, England">
+                                    United Kingdom
+                                </option>
                                 <option value="US">United States</option>
                             </select>
                         </form>
@@ -110,11 +126,16 @@
                         </form>
                     </div>
 
-                        <!-- section to hold dog search results -->
+                    <!-- section to hold dog search results -->
                     <div class="dog-search-container">
                         <!-- append results from dog search here -->
                     </div>
                 </section>
+
+                <!-- section to hold error message here -->
+                <div class="error-search-container">
+                    <!-- append error message here -->
+                </div>
             </div>
         </main>
 
