@@ -30,7 +30,7 @@ dogApp.dogImageApiUrl = "https://api.thedogapi.com/v1/images/";
 
 // Display the dog-search section and hide the GIF section when "DOG SEARCH" button is clicked
 dogApp.openDogSearch = () => {
-    dogApp.dogSearchButton.addEventListener("click", function (e) {
+    dogApp.dogSearchButton.addEventListener("click", function () {
         dogApp.dogSearchSection.classList.remove("dog-search-toggle");
         dogApp.dogGifSection.classList.add("dog-gif-toggle");
     });
@@ -38,23 +38,26 @@ dogApp.openDogSearch = () => {
 
 // Display the GIF section and hide the dog-search section when "GIF" button is clicked
 dogApp.openGif = () => {
-    dogApp.dogGifButton.addEventListener("click", function (e) {
+    dogApp.dogGifButton.addEventListener("click", function () {
         dogApp.dogSearchSection.classList.add("dog-search-toggle");
         dogApp.dogGifSection.classList.remove("dog-gif-toggle");
     });
 };
 
 // Function to display dog gif result on the page
-dogApp.dogGifsResults = (imageUrl, title) => {
-    // Empty the innerHTML of errorGifContainer before displaying the new results
+dogApp.dogGifsResults = (arrayOfGifs) => {
+    // Empty the innerHTML of dogApp.errorGifContainer before displaying the new results
     dogApp.errorGifContainer.innerHTML = "";
-    // Create the HTML elements for the dogGif object to display on the page
-    const gifsToDisplay = `
-    <div class="gif-container">
-        <img src=${imageUrl} alt="${title}"/>
-    </div>`;
-    //   Append the dogGif in the body element
-    dogApp.dogGifContainer.insertAdjacentHTML("beforeend", gifsToDisplay);
+    // Loop the array of arrayOfGifs
+    arrayOfGifs.forEach((dogGif) => {
+        // Create the HTML elements for the dogGif object to display on the page
+        const gifsToDisplay = `
+            <div class="gif-container">
+                <img src=${dogGif.images.original.url} alt="${dogGif.title}"/>
+            </div>`;
+        //   Append the dogGif in the body element
+        dogApp.dogGifContainer.insertAdjacentHTML("beforeend", gifsToDisplay);
+    });
 };
 
 // Function to display dog result on the page
@@ -68,7 +71,7 @@ dogApp.dogSearchResults = (
     dogWeight,
     dogLife
 ) => {
-    // Empty the innerHTML of errorSearchContainer before displaying the new results
+    // Empty the innerHTML of dogApp.errorSearchContainer before displaying the new results
     dogApp.errorSearchContainer.innerHTML = "";
     // Create the HTML elements for to display the resuls on the page
     const dogResultsToDisplay = `
@@ -139,13 +142,8 @@ dogApp.getGif = () => {
             return response.json();
         })
         .then((gifsFromApi) => {
-            // Get the array of data from gifsFromApi
-            const dogGifs = gifsFromApi.data;
-            // Loop the array of dogGifs
-            dogGifs.forEach((dogGif) => {
-                // Calling the dogApp.dogGifsResults function
-                dogApp.dogGifsResults(dogGif.images.original.url, dogGif.title);
-            });
+            // Calling dogApp.dogGifResults function
+            dogApp.dogGifsResults(gifsFromApi.data);
         })
         // Catch the error and display the message to the UI
         .catch((error) =>
@@ -168,11 +166,12 @@ dogApp.getDogBreed = () => {
     fetch(dogBreedUrl)
         .then((response) => {
             // Test if there is any error when fetching the data
-            if (!response.ok)
+            if (!response.ok) {
                 // throw the error to catch the status of the response
                 throw new Error(
                     `Something went wrong ${response.status} error`
                 );
+            }
             // Return the JSON object if the data is fetched successfully
             return response.json();
         })
@@ -237,56 +236,69 @@ dogApp.getDogBreed = () => {
         );
 };
 
-// Function to make API call for searching dog info from user input
-dogApp.getDogName = (url) => {
-    fetch(url)
+// Function to make API call for searching dog image
+dogApp.getDogImages = (arrayOfDog) => {
+    // Check if the arrayOfDog returns is empty
+    if (arrayOfDog.length !== 0) {
+        arrayOfDog.forEach((dogGroup) => {
+            // Make nested API call to fetch the dogImageUrl from the image_id of the arrayOfDog objects
+            fetch(`${dogApp.dogImageApiUrl}${dogGroup["reference_image_id"]}`)
+                .then((response) => response.json())
+                .then((dogImages) => {
+                    // Store the properties of the dogGroup object in variables by destructuring assigment
+                    const {
+                        name,
+                        breed_group: group,
+                        bred_for: role,
+                        temperament: traits,
+                        weight: { metric: weight },
+                        life_span: age,
+                    } = dogGroup;
+                    // Calling the dogApp.dogOriginResult function
+                    dogApp.dogSearchResults(
+                        dogImages.url,
+                        name,
+                        null,
+                        group,
+                        role,
+                        traits,
+                        weight,
+                        age
+                    );
+                });
+        });
+        // If the arrayOfDog is empty, display the error message
+    } else {
+        dogApp.errorMessage(
+            dogApp.errorSearchContainer,
+            "Your search not found! Try again!"
+        );
+    }
+};
+
+// Function to make an API call to search for the dog based on user input
+dogApp.getDogInfo = (query) => {
+    // Make an dogNameSearchUrl API call base
+    const dogNameSearchUrl = new URL(dogApp.dogSearchApiUrl);
+    // Pass in the breed.name as the parameter for the dogNameSearchUrl search
+    dogNameSearchUrl.search = new URLSearchParams({
+        q: query,
+    });
+    fetch(dogNameSearchUrl)
         .then((response) => {
             // Test if there is any error when fetching the data
-            if (!response.ok)
+            if (!response.ok) {
                 // throw the error to catch the status of the response
                 throw new Error(
                     `Something went wrong ${response.status} error`
                 );
+            }
             // Return the JSON object if the data is fetched successfully
             return response.json();
         })
         .then((dogGroupsFromApi) => {
-            if (dogGroupsFromApi.length !== 0) {
-                dogGroupsFromApi.forEach((dogGroup) => {
-                    // Make API call to fetch the dogImageUrl
-                    fetch(
-                        `${dogApp.dogImageApiUrl}${dogGroup["reference_image_id"]}`
-                    )
-                        .then((response) => response.json())
-                        .then((dogImages) => {
-                            // Store the properties of the dogGroup object in variables by destructuring assigment
-                            const {
-                                name,
-                                breed_group: group,
-                                bred_for: role,
-                                temperament: traits,
-                                weight: { metric: weight },
-                                life_span: age,
-                            } = dogGroup;
-                            // Calling the dogApp.dogOriginResult function
-                            dogApp.dogSearchResults(
-                                dogImages.url,
-                                name,
-                                null,
-                                group,
-                                role,
-                                traits,
-                                weight,
-                                age
-                            );
-                        });
-                });
-            } else {
-                dogApp.errorMessage(
-                    dogApp.errorSearchContainer,
-                    "Your search not found! Try again!"
-                );
-            }
+            // Calling the dogApp.getDogImages function
+            dogApp.getDogImages(dogGroupsFromApi);
         })
         // Catch the error and display the message to the UI
         .catch((error) =>
@@ -302,17 +314,10 @@ dogApp.searchDogEvent = () => {
     dogApp.searchButton.addEventListener("click", function (e) {
         // Prevent the page from refeshing
         e.preventDefault();
-
         // Empty the innerHTML of dogSearchContainer before displaying the new results
         dogApp.dogSearchContainer.innerHTML = "";
-        // Make an dogNameSearchUrl API call base
-        const dogNameSearchUrl = new URL(dogApp.dogSearchApiUrl);
-        // Pass in the breed.name as the parameter for the dogNameSearchUrl search
-        dogNameSearchUrl.search = new URLSearchParams({
-            q: `${dogApp.searchInput.value}`,
-        });
-        // Calling the dogApp.getDogName API call function
-        dogApp.getDogName(dogNameSearchUrl);
+        // Calling function dogApp.getDogInfo function
+        dogApp.getDogInfo(dogApp.searchInput.value);
         // Empty the input value when click the search button
         dogApp.searchInput.value = "";
     });
@@ -320,21 +325,21 @@ dogApp.searchDogEvent = () => {
 
 // Function init to kick off the app
 dogApp.init = () => {
+    // Calling the openDogSearch function
+    dogApp.openDogSearch();
+    // Calling the openGif function
+    dogApp.openGif();
     // Calling the getGif API call function
     dogApp.getGif();
     // Calling the getDogBreed API call function
     dogApp.getDogBreed();
     // Calling the serachDogEvent function
     dogApp.searchDogEvent();
-    // Calling the openDogSearch function
-    dogApp.openDogSearch();
-    // Calling the openGif function
-    dogApp.openGif();
 };
 
 dogApp.init();
 
 // Testing the select options to get the values
 dogApp.selectElement.addEventListener("change", function (e) {
-    console.log(e.target.value);
+    console.log(this.value);
 });
