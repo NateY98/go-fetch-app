@@ -422,6 +422,10 @@ h1 {
   transition: 200ms ease-in-out;
 }
 
+.dog-gif-toggle {
+  display: none;
+}
+
 .form-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -509,6 +513,10 @@ h1 {
 
 .dog-info-container span {
   font-weight: 700;
+}
+
+.dog-search-toggle {
+  display: none;
 }
 
 footer {
