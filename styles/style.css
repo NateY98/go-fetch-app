@@ -323,6 +323,15 @@ option {
   transition: 200ms ease-in-out;
 }
 
+.error-message {
+  margin-top: 40px;
+  padding: 20px 0;
+  border-radius: 5px;
+  background: #595959;
+  color: #ffffff;
+  text-align: center;
+}
+
 .header-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
