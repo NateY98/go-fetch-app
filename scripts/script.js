@@ -332,3 +332,8 @@ dogApp.init = () => {
 };
 
 dogApp.init();
+
+// Testing the select options to get the values
+dogApp.selectElement.addEventListener("change", function (e) {
+    console.log(e.target.value);
+});
