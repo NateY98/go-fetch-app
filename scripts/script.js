@@ -7,7 +7,6 @@ const dogApp = {};
 dogApp.dogGifContainer = document.querySelector(".dog-gif");
 dogApp.dogSearchContainer = document.querySelector(".dog-search-container");
 dogApp.selectElement = document.querySelector(".dog-select");
-dogApp.optionElements = document.querySelectorAll("option");
 dogApp.searchInput = document.querySelector(".dog-name-search");
 dogApp.searchButton = document.querySelector(".button-search");
 dogApp.dogSearchButton = document.querySelector(".dog-search-button");
@@ -47,6 +46,8 @@ dogApp.openGif = () => {
 
 // Function to display dog gif result on the page
 dogApp.dogGifsResults = (imageUrl, title) => {
+    // Empty the innerHTML of errorGifContainer before displaying the new results
+    dogApp.errorGifContainer.innerHTML = "";
     // Create the HTML elements for the dogGif object to display on the page
     const gifsToDisplay = `
     <div class="gif-container">
@@ -67,6 +68,8 @@ dogApp.dogSearchResults = (
     dogWeight,
     dogLife
 ) => {
+    // Empty the innerHTML of errorSearchContainer before displaying the new results
+    dogApp.errorSearchContainer.innerHTML = "";
     // Create the HTML elements for to display the resuls on the page
     const dogResultsToDisplay = `
                 <div class="dog-search-results">
@@ -126,17 +129,16 @@ dogApp.getGif = () => {
     fetch(giphyUrl)
         .then((response) => {
             // Test if there is any error when fetching the data
-            if (!response.ok)
+            if (!response.ok) {
                 // throw the error to catch the status of the response
                 throw new Error(
                     `Something went wrong ${response.status} error!`
                 );
+            }
             // Return the JSON object if the data is fetched successfully
             return response.json();
         })
         .then((gifsFromApi) => {
-            // Empty the innerHTML of errorGifContainer before displaying the new results
-            dogApp.errorGifContainer.innerHTML = "";
             // Get the array of data from gifsFromApi
             const dogGifs = gifsFromApi.data;
             // Loop the array of dogGifs
@@ -300,8 +302,7 @@ dogApp.searchDogEvent = () => {
     dogApp.searchButton.addEventListener("click", function (e) {
         // Prevent the page from refeshing
         e.preventDefault();
-        // Empty the innerHTML of errorSearchContainer before displaying the new results
-        dogApp.errorSearchContainer.innerHTML = "";
+
         // Empty the innerHTML of dogSearchContainer before displaying the new results
         dogApp.dogSearchContainer.innerHTML = "";
         // Make an dogNameSearchUrl API call base
