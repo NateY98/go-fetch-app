@@ -343,10 +343,10 @@ dogApp.init = () => {
     dogApp.openDogSearch();
     // Calling the openGif function
     dogApp.openGif();
-    // Calling the getGif API call function
-    dogApp.getGif();
     // Calling the getDogBreed API call function
     dogApp.getDogBreed();
+    // Calling the getGif API call function
+    dogApp.getGif();
     // Calling the serachDogEvent function
     dogApp.searchDogEvent();
 };

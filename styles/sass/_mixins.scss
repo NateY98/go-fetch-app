@@ -1,22 +1,22 @@
 // Function for container wrapper
 @mixin wrapper {
-    max-width: 1500px;
-    width: 95%;
-    margin: 0 auto;
+  max-width: 1500px;
+  width: 95%;
+  margin: 0 auto;
 }
 
 // Basic button styles
 @mixin button-styles {
-    background: $primary-white-color;
-    background: $second-bg-color2;
-    border-radius: 5px;
-    color: $primary-white-color;
-    text-transform: uppercase;
-    font-weight: 700;
+  background: $primary-white-color;
+  background: $second-bg-color2;
+  border-radius: 5px;
+  color: $primary-white-color;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 // Hover state for button
 @mixin button-hover {
-    color: $primary-black-color;
-    transition: 200ms ease-in-out;
+  color: $primary-black-color;
+  transition: 200ms ease-in-out;
 }
