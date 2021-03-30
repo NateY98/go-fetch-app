@@ -1,32 +1,33 @@
-# Go Dog Go app
+# Go Fetch app
 
 WINTER 2 BOOTCAMP PROJECT 2 - API (PAIRED PROGRAMMING)
 
+Group members:
 
-Group members: 
 <ul>
     <li>Christie Tran</li>
     <li>Nate Yeow</li>
 </ul>
 
-Our idea: Go Dog Go (pet finder)
+Our idea: Go Fetch (pet finder) with RESTful APIs
+
 <ul>
     <li>https://docs.thedogapi.com/</li>
     <li>https://giphy.com/</li>
 </ul>
 
+Minimum Viable Product:
 
-MVP:
+Make a pet (dog) sorting app that will filter through the user’s selected choices. And we will output a list of dog types that fit their selections.
 
-Make a pet (dog) sorting app that will filter through the user’s selected choices. We will have a form which gives the user options to pick the pets origin (dropdown selector) and name (search bar) and we will output a list of dog types that fit their selections. 
-
+<ul>
+    <li>We will have a form which gives the user options to pick the pets origin (dropdown selector)</li>
+    <li>And name (search bar) to search the dog info by names</li>
+</ul>
 
 Stretch Goals:
 
-Provide gifs on the homepage that can be filtered through using a carousel. The user can choose to look up gifs or find their pet.
-
-We find the location of the user (using leaflet/mapquest api) then we can match them to dogs that originate from the same area.
-
-Add: roles (hunting, herding…) & trait (characteristic)  to our user search
-
-
+<ul>
+    <li>Provide dog gifs on the homepage. The user can choose to look up gifs or find their pet.</li>
+    <li>Add: roles (hunting, herding…) & trait (characteristic) to our user search</li>
+</ul>
