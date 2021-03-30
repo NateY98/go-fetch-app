@@ -3,7 +3,6 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    // visibility: hidden;
 }
 
 // Make the dropdwon selector sit under the title
@@ -28,6 +27,7 @@
 // Styles for the labels
 .dog-origin-label {
     font-size: 1.2rem;
+    font-weight: 700;
 }
 
 // styles for text input dog search

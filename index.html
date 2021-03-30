@@ -1,161 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="An application for filtering the dog search and seeing the fun dog GIFs"
-    />
-    <title>Go Dog Go</title>
-    <link rel="stylesheet" href="./styles/style.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <script src="https://kit.fontawesome.com/6d2ea823d0.js"></script>
-  </head>
-  <body>
-    <!-- Header starts here -->
-    <header>
-      <!-- Header wrapper starts here -->
-      <div class="header-wrapper">
-        <!-- Header logo starts here -->
-        <div class="header-logo">
-          <a class="logo-button" href="#dog-gif" aria-label="Go to home page">
-            <img src="" alt="Page logo Go Dog Go" />
-          </a>
-        </div>
-        <!-- Header navigation menu starts here -->
-        <nav class="header-nav">
-          <ul class="header-list">
-            <li class="list-item">
-              <a
-                class="gif-button"
-                href="#dog-gif"
-                aria-label="Go to dog gifs section"
-                >gifs</a
-              >
-            </li>
-            <li class="list-item">
-              <a
-                class="dog-search-button"
-                href="#dog-search"
-                aria-label="Go to dog search section"
-                >dog search</a
-              >
-            </li>
-          </ul>
-          <button
-            class="button button-hamburger"
-            aria-label="Button to open the navigation menu"
-          >
-            <i aria-hidden class="fas fa-paw"></i>
-          </button>
-        </nav>
-      </div>
-    </header>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="An application for filtering the dog search and seeing the fun dog GIFs"
+        />
+        <title>Go Fetch</title>
+        <link rel="stylesheet" href="./styles/style.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+        <script src="https://kit.fontawesome.com/6d2ea823d0.js"></script>
+    </head>
+    <body>
+        <!-- Header starts here -->
+        <header>
+            <!-- Header wrapper starts here -->
+            <div class="header-wrapper">
+                <!-- Header navigation menu starts here -->
+                <nav class="header-nav">
+                    <!-- Header logo starts here -->
+                    <div class="header-logo">
+                        <a
+                            class="logo-button"
+                            href="#"
+                            aria-label="Go to home page"
+                        >
+                            <img src="" alt="Page logo Go Fetch" />
+                        </a>
+                    </div>
+                    <ul class="header-list">
+                        <li class="list-item">
+                            <a
+                                class="gif-button"
+                                href="#dog-gif"
+                                aria-label="Go to dog gifs section"
+                                >gifs</a
+                            >
+                        </li>
+                        <li class="list-item">
+                            <a
+                                class="dog-search-button"
+                                href="#dog-search"
+                                aria-label="Go to dog search section"
+                                >dog search</a
+                            >
+                        </li>
+                    </ul>
+                    <button
+                        class="button button-hamburger"
+                        aria-label="Button to open the navigation menu"
+                    >
+                        <i aria-hidden class="fas fa-paw"></i>
+                    </button>
+                </nav>
+            </div>
+        </header>
 
-    <!-- main starts here -->
-    <main>
-      <!-- start of the main wrapper -->
-      <div class="main-wrapper">
-        <!-- title h1 to welcome user to the page -->
-        <h1>Welcome to our dog app!</h1>
+        <!-- main starts here -->
+        <main>
+            <!-- start of the main wrapper -->
+            <div class="main-wrapper">
+                <!-- title h1 to welcome user to the page -->
+                <h1>Welcome to our dog app!</h1>
 
-        <!-- section to hold error message here -->
-        <div class="error-gif-container">
-          <!-- append error message here -->
-        </div>
-        <!-- section to hold appended results from api for dog gif -->
-        <section class="dog-gif" id="dog-gif">
-          <!-- append results from GIF -->
-        </section>
+                <!-- section to hold error message here -->
+                <div class="error-gif-container">
+                    <!-- append error message here -->
+                </div>
+                <!-- section to hold appended results from api for dog gif -->
+                <section class="dog-gif" id="dog-gif">
+                    <!-- append results from GIF -->
+                </section>
 
-        <!-- section for searching dog information -->
-        <section class="dog-search" id="dog-search">
-          <p class="instructions">
-            Please choose either: A country of origin to find breeds that
-            originate from that location OR type in the name of a dog you are
-            looking for. You will recieve information about the dog(s) below.
-          </p>
-          <div class="form-container">
-            <!-- form for dropdown selector for dog origin -->
-            <form action="" class="dropdown-form">
-              <!-- label for the dropdown select form -->
-              <label for="dog-origin" class="dog-origin-label"
-                >Choose dog origin:</label
-              >
-              <!-- the dropdown selector -->
-              <select
-                id="dog-origin"
-                name="dog-origin"
-                class="dog-select"
-                autocomplete="off"
-              >
-                <option value="select" disabled selected>
-                  -- Please choose an option --
-                </option>
-                <option value="Afghanistan, Iran, Pakistan">Afghanistan</option>
-                <option value="AU">Australia</option>
-                <option value="Germany, France">France</option>
-                <option value="Germany, France">Germany</option>
-                <option value="United Kingdom, England">United Kingdom</option>
-                <option value="US">United States</option>
-              </select>
-            </form>
+                <!-- section for searching dog information -->
+                <section class="dog-search" id="dog-search">
+                    <p class="instructions">
+                        Please choose either: A country of origin to find breeds
+                        that originate from that location OR type in the name of
+                        a dog you are looking for. You will recieve information
+                        about the dog(s) below.
+                    </p>
+                    <div class="form-container">
+                        <!-- form for dropdown selector for dog origin -->
+                        <form action="" class="dropdown-form">
+                            <!-- label for the dropdown select form -->
+                            <label for="dog-origin" class="dog-origin-label"
+                                >Choose dog origin:</label
+                            >
+                            <!-- the dropdown selector -->
+                            <select
+                                id="dog-origin"
+                                name="dog-origin"
+                                class="dog-select"
+                                autocomplete="off"
+                            >
+                                <option value="select" disabled selected>
+                                    -- Please choose an option --
+                                </option>
+                                <option value="Afghanistan, Iran, Pakistan">
+                                    Afghanistan
+                                </option>
+                                <option value="AU">Australia</option>
+                                <option value="Germany, France">France</option>
+                                <option value="Germany, France">Germany</option>
+                                <option value="United Kingdom, England">
+                                    United Kingdom
+                                </option>
+                                <option value="US">United States</option>
+                            </select>
+                        </form>
 
-            <!-- form for searching dog names -->
-            <form action="">
-              <!-- hidden label for the search bar (screen reader only) -->
-              <label for="dog-name-search" class="sr-only"
-                >Search for dog information:</label
-              >
-              <!-- text input for search bar for dog names -->
-              <input
-                id="dog-name-search"
-                class="dog-name-search"
-                type="text"
-                name="dog-name-search"
-                placeholder="Search dog name..."
-              />
-              <!-- submit button for search dog name search bar -->
-              <button class="button button-search" type="submit">Search</button>
-            </form>
-          </div>
+                        <!-- form for searching dog names -->
+                        <form action="">
+                            <!-- hidden label for the search bar (screen reader only) -->
+                            <label for="dog-name-search" class="sr-only"
+                                >Search for dog information:</label
+                            >
+                            <!-- text input for search bar for dog names -->
+                            <input
+                                id="dog-name-search"
+                                class="dog-name-search"
+                                type="text"
+                                name="dog-name-search"
+                                placeholder="Search dog name..."
+                            />
+                            <!-- submit button for search dog name search bar -->
+                            <button class="button button-search" type="submit">
+                                Search
+                            </button>
+                        </form>
+                    </div>
 
-          <!-- section to hold dog search results -->
-          <div class="dog-search-container">
-            <!-- append results from dog search here -->
-          </div>
-        </section>
+                    <!-- section to hold dog search results -->
+                    <div class="dog-search-container">
+                        <!-- append results from dog search here -->
+                    </div>
+                </section>
 
-        <!-- section to hold error message here -->
-        <div class="error-search-container">
-          <!-- append error message here -->
-        </div>
-      </div>
-    </main>
+                <!-- section to hold error message here -->
+                <div class="error-search-container">
+                    <!-- append error message here -->
+                </div>
+            </div>
+        </main>
 
-    <!-- footer starts here -->
-    <footer>
-      <div class="footer-wrapper">
-        <!-- footer link for Copyright -->
-        <a href="https://junocollege.com/" target="_blank"
-          >Created at Juno College</a
-        >
-        <p>
-          Copyright&copy; 2021
-          <a href="https://github.com/christiesunnie" target="_blank"
-            >Christie Tran</a
-          >
-          &
-          <a href="https://github.com/NateY98" target="_blank">Nate Yeow</a>
-        </p>
-      </div>
-    </footer>
-    <script src="./scripts/script.js"></script>
-  </body>
+        <!-- footer starts here -->
+        <footer>
+            <div class="footer-wrapper">
+                <!-- footer link for Copyright -->
+                <a href="https://junocollege.com/" target="_blank"
+                    >Created at Juno College</a
+                >
+                <p>
+                    Copyright&copy; 2021
+                    <a
+                        href="https://github.com/christiesunnie"
+                        aria-label="Go to Christie Tran's GitHub page"
+                        target="_blank"
+                        >Christie Tran</a
+                    >
+                    &
+                    <a
+                        href="https://github.com/NateY98"
+                        aria-label="Go to Nate Yeow's GitHub page"
+                        target="_blank"
+                        >Nate Yeow</a
+                    >
+                </p>
+            </div>
+        </footer>
+        <script src="./scripts/script.js"></script>
+    </body>
 </html>

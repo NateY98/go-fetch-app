@@ -1,0 +1,141 @@
+@media (max-width: 1150px) {
+    // Gif section styling
+    .dog-gif {
+        width: 80vw;
+        margin: 0 auto;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: auto;
+    }
+
+    .gif-container:last-child {
+        grid-column: 2 / 3;
+    }
+}
+
+/* Portrait tablet and small desktops */
+@media (max-width: 940px) {
+    // Header styling
+    .list-item {
+        font-size: 1.2rem;
+    }
+
+    // Search styling
+    h1 {
+        font-size: 1.7rem;
+    }
+
+    .dog-origin-label,
+    .dog-search-results h2 {
+        font-size: 1rem;
+    }
+
+    .dog-select,
+    .dog-name-search,
+    .button-search,
+    .instructions,
+    .dog-search-results {
+        font-size: 0.8rem;
+    }
+}
+/* Landscape phone to portrait tablet */
+@media (max-width: 768px) {
+    // Header styling
+    .header-nav {
+        flex-direction: column;
+    }
+
+    .header-list {
+        align-items: center;
+        flex-direction: column;
+        padding-top: 50px;
+        // display: none;
+    }
+
+    .show-list {
+        display: block;
+    }
+
+    .list-item {
+        margin: 20px 0;
+    }
+
+    .button-hamburger {
+        visibility: visible;
+    }
+
+    // Sog search section styling
+    .form-container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .dropdown-form {
+        align-items: center;
+        padding-bottom: 30px;
+    }
+
+    .dog-search-container {
+        grid-template-columns: 1fr;
+    }
+
+    // Dog search results styles
+    .dog-search-results {
+        flex-direction: row;
+    }
+
+    .dog-info-container {
+        padding-top: 0;
+        padding-left: 10px;
+        flex: 1 0 300px;
+    }
+
+    .error-message {
+        font-size: 0.7rem;
+    }
+}
+
+/* Landscape phones and down */
+@media (max-width: 600px) {
+    // Gif section styling
+    .dog-gif {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 20px;
+        padding-bottom: 20px;
+    }
+
+    // Dog GIFs container style
+    .gif-container {
+        padding: 20px 10px;
+    }
+
+    // Dog search results styles
+    h1 {
+        font-size: 1.3rem;
+    }
+
+    .dog-search-results {
+        flex-direction: column;
+    }
+
+    .dog-info-container {
+        padding-top: 20px;
+    }
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+    // Header styling
+    .list-item {
+        font-size: 1rem;
+    }
+
+    .button-hamburger {
+        font-size: 1.2rem;
+    }
+
+    // Footer styling
+    .footer-wrapper {
+        font-size: 0.6rem;
+    }
+}

@@ -1,7 +1,5 @@
 // Style for wrapper in header
 .header-wrapper {
-    display: flex;
-    justify-content: space-between;
     @include wrapper;
 }
 
@@ -41,17 +39,19 @@ header {
 // Arranging the logo and main nav to fit on the page
 .header-nav {
     display: flex;
+    justify-content: space-between;
     position: relative;
 }
 
 // Styling for the hamburger menu button
 .button-hamburger {
     position: absolute;
-    right: 0;
+    right: 10px;
     top: -11px;
-    visibility: hidden;
-    margin: 0 20px;
+    padding: 5px;
+    border: 1px solid transparent;
+    border-radius: 50%;
     font-size: 1.5rem;
-    padding: 10px 25px;
+    cursor: pointer;
+    visibility: hidden;
 }
-
