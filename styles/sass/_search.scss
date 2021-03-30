@@ -1,92 +1,92 @@
 // Styles for seconday nav to search dog info
 .form-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  // visibility: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    // visibility: hidden;
 }
 
 // Make the dropdwon selector sit under the title
 .dropdown-form {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 // Dog general select styles
 .dog-select {
-  width: 100%;
-  display: block;
-  padding: 10px 50px 10px 10px;
-  margin-top: 10px;
-  appearance: none;
-  border: 1px solid black;
-  background: $second-bg-color2
-    url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png)
-    95% center no-repeat;
+    width: 100%;
+    display: block;
+    padding: 10px 50px 10px 10px;
+    margin-top: 10px;
+    appearance: none;
+    border: 1px solid black;
+    background: $second-bg-color2
+        url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png)
+        95% center no-repeat;
 }
 
 // Styles for the labels
 .dog-origin-label {
-  font-size: 1.2rem;
+    font-size: 1.2rem;
 }
 
 // styles for text input dog search
 .dog-name-search {
-  padding: 9.5px;
+    padding: 9.5px;
 }
 
 // Styles for the search button
 .button-search {
-  padding: 10.5px;
-  margin-left: -17px;
-  border: 1px solid $primary-black-color;
-  border-radius: 0;
+    padding: 10.5px;
+    margin-left: -17px;
+    border: 1px solid $primary-black-color;
+    border-radius: 0;
 }
 
 // Dog search container styles
 .dog-search-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: auto;
-  gap: 50px;
-  margin: 70px 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
+    gap: 50px;
+    margin: 70px 0;
 }
 
 // Dog search results styles
 .dog-search-results {
-  display: flex;
-  align-items: center;
-  padding: 40px 30px;
-  border-radius: 5px;
-  background: $second-bg-color2;
-  flex-direction: column;
-  text-align: center;
-  line-height: 1.5;
+    display: flex;
+    align-items: center;
+    padding: 40px 30px;
+    border-radius: 5px;
+    background: $second-bg-color2;
+    flex-direction: column;
+    text-align: center;
+    line-height: 1.5;
 }
 
 // Dog info container styles
 .dog-info-container {
-  padding-top: 40px;
+    padding-top: 40px;
 }
 
 // Dog info list styles
 .dog-info-list {
-  padding-top: 20px;
+    padding-top: 20px;
 }
 
 // Dog info container span styles
 .dog-info-container span {
-  font-weight: 700;
+    font-weight: 700;
 }
 
 // Toggle dog-search section when button is clicked
 .dog-search {
-  display: none;
+    display: none;
 }
 
 .instructions {
-  text-align: center;
-  padding-bottom: 40px;
-  max-width: 80%;
-  margin: 0 auto;
+    text-align: center;
+    padding-bottom: 40px;
+    max-width: 80%;
+    margin: 0 auto;
 }
