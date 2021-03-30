@@ -11,8 +11,7 @@ dogApp.searchInput = document.querySelector(".dog-name-search");
 dogApp.searchButton = document.querySelector(".button-search");
 dogApp.dogSearchButton = document.querySelector(".dog-search-button");
 dogApp.dogGifButton = document.querySelector(".gif-button");
-dogApp.dogSearchSection = document.getElementById("dog-search");
-dogApp.dogGifSection = document.getElementById("dog-gif");
+dogApp.dogSearchSection = document.querySelector(".dog-search");
 dogApp.errorGifContainer = document.querySelector(".error-gif-container");
 dogApp.errorSearchContainer = document.querySelector(".error-search-container");
 
@@ -27,20 +26,23 @@ dogApp.dogImageApiUrl = "https://api.thedogapi.com/v1/images/";
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////Functions//////////////////////////////////////////////////////
-
 // Display the dog-search section and hide the GIF section when "DOG SEARCH" button is clicked
 dogApp.openDogSearch = () => {
     dogApp.dogSearchButton.addEventListener("click", function () {
-        dogApp.dogSearchSection.classList.remove("dog-search-toggle");
-        dogApp.dogGifSection.classList.add("dog-gif-toggle");
+        // Empty the innerHTML of dogApp.errorGifContainer before displaying the new results
+        dogApp.errorGifContainer.innerHTML = "";
+        dogApp.dogSearchSection.classList.remove("dog-search");
+        dogApp.dogGifContainer.classList.add("dog-gif-toggle");
     });
 };
 
 // Display the GIF section and hide the dog-search section when "GIF" button is clicked
 dogApp.openGif = () => {
     dogApp.dogGifButton.addEventListener("click", function () {
-        dogApp.dogSearchSection.classList.add("dog-search-toggle");
-        dogApp.dogGifSection.classList.remove("dog-gif-toggle");
+        // Empty the innerHTML of dogApp.errorSearchContainer before displaying the new results
+        dogApp.errorSearchContainer.innerHTML = "";
+        dogApp.dogSearchSection.classList.add("dog-search");
+        dogApp.dogGifContainer.classList.remove("dog-gif-toggle");
     });
 };
 
@@ -112,7 +114,7 @@ dogApp.dogSearchResults = (
 };
 
 // Function to display the error message to UI
-dogApp.errorMessage = function (position, message) {
+dogApp.errorMessage = (position, message) => {
     const errorToDisplay = `
     <p class="error-message">${message}</p>
     `;
@@ -176,56 +178,8 @@ dogApp.getDogBreed = () => {
             return response.json();
         })
         .then((breedsFromApi) => {
-            // loop through the object of breeds array
-            breedsFromApi.forEach((breed) => {
-                // Store the properties of the breed object in variables by destructuring assigment
-                const {
-                    image: { url },
-                    name,
-                    origin,
-                    country_code: country,
-                    bred_for: role,
-                    temperament: traits,
-                    weight: { metric: weight },
-                    life_span: age,
-                } = breed;
-                // test if origin match the select from UI
-                if (
-                    origin !== undefined &&
-                    origin !== "" &&
-                    origin === "United Kingdom, England"
-                ) {
-                    // Calling the dogApp.dogOriginResult function
-                    dogApp.dogSearchResults(
-                        url,
-                        name,
-                        origin,
-                        null,
-                        role,
-                        traits,
-                        weight,
-                        age
-                    );
-                }
-                // test if country_code match the select from UI
-                else if (
-                    country !== undefined &&
-                    country !== "" &&
-                    country === "US"
-                ) {
-                    // Calling the dogApp.dogOriginResult function
-                    dogApp.dogSearchResults(
-                        url,
-                        name,
-                        country,
-                        null,
-                        role,
-                        traits,
-                        weight,
-                        age
-                    );
-                }
-            });
+            // Calling dogApp.dogOriginEvent function
+            dogApp.dogOriginEvent(breedsFromApi);
         })
         // Catch the error and display the message to the UI
         .catch((error) =>
@@ -309,11 +263,71 @@ dogApp.getDogInfo = (query) => {
         );
 };
 
+// Function to listen to the change event from options of select
+dogApp.dogOriginEvent = (arrayOfDog) => {
+    dogApp.selectElement.addEventListener("change", function () {
+        // Empty dogApp.dogSearchContainer content
+        dogApp.dogSearchContainer.innerHTML = "";
+        // loop through the object of dog array
+        arrayOfDog.forEach((dog) => {
+            // Store the properties of the dog object in variables by destructuring assigment
+            const {
+                image: { url },
+                name,
+                origin,
+                country_code: country,
+                bred_for: role,
+                temperament: traits,
+                weight: { metric: weight },
+                life_span: age,
+            } = dog;
+            // test if origin match the select from UI
+            if (
+                origin !== undefined &&
+                origin !== "" &&
+                origin === this.value
+            ) {
+                // Calling the dogApp.dogOriginResult function
+                dogApp.dogSearchResults(
+                    url,
+                    name,
+                    origin,
+                    null,
+                    role,
+                    traits,
+                    weight,
+                    age
+                );
+            }
+            // test if country_code match the select from UI
+            else if (
+                country !== undefined &&
+                country !== "" &&
+                country === this.value
+            ) {
+                // Calling the dogApp.dogOriginResult function
+                dogApp.dogSearchResults(
+                    url,
+                    name,
+                    country,
+                    null,
+                    role,
+                    traits,
+                    weight,
+                    age
+                );
+            }
+        });
+    });
+};
+
 // Function to trigger the search button click event
 dogApp.searchDogEvent = () => {
     dogApp.searchButton.addEventListener("click", function (e) {
         // Prevent the page from refeshing
         e.preventDefault();
+        // Empty the innerHTML of dogApp.errorSearchContainer before displaying the new results
+        dogApp.errorSearchContainer.innerHTML = "";
         // Empty the innerHTML of dogSearchContainer before displaying the new results
         dogApp.dogSearchContainer.innerHTML = "";
         // Calling function dogApp.getDogInfo function
@@ -338,8 +352,3 @@ dogApp.init = () => {
 };
 
 dogApp.init();
-
-// Testing the select options to get the values
-dogApp.selectElement.addEventListener("change", function (e) {
-    console.log(this.value);
-});
