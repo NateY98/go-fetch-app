@@ -605,6 +605,9 @@ footer {
 
 /* Landscape phone to portrait tablet */
 @media (max-width: 768px) {
+  header {
+    padding-bottom: 30px;
+  }
   .header-nav {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -620,9 +623,12 @@ footer {
         -ms-flex-direction: column;
             flex-direction: column;
     padding-top: 50px;
+    height: 0;
+    visibility: hidden;
   }
   .show-list {
-    display: block;
+    height: 170px;
+    visibility: visible;
   }
   .list-item {
     margin: 20px 0;

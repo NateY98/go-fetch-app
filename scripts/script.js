@@ -4,6 +4,8 @@ const dogApp = {};
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////Global variables//////////////////////////////////////////////
 // Store the DOM element inside the dogApp object
+dogApp.pawButton = document.querySelector(".button-hamburger");
+dogApp.headerListContainer = document.querySelector(".header-list");
 dogApp.dogGifContainer = document.querySelector(".dog-gif");
 dogApp.dogSearchContainer = document.querySelector(".dog-search-container");
 dogApp.selectElement = document.querySelector(".dog-select");
@@ -57,6 +59,13 @@ dogApp.openDogSearch = () => {
         dogApp.errorGifContainer.innerHTML = "";
         dogApp.dogSearchSection.classList.remove("dog-search");
         dogApp.dogGifContainer.classList.add("dog-gif-toggle");
+    });
+};
+
+// Toggle paw button to open the navigation menu
+dogApp.pawButtonEvent = () => {
+    dogApp.pawButton.addEventListener("click", () => {
+        dogApp.headerListContainer.classList.toggle("show-list");
     });
 };
 
@@ -353,6 +362,8 @@ dogApp.searchDogEvent = () => {
 
 // Function init to kick off the app
 dogApp.init = () => {
+    // Calling the pawButtonEvent function
+    dogApp.pawButtonEvent();
     // Calling the logoHeaderButton function
     dogApp.logoHeaderButton();
     // Calling the openDogSearch function
