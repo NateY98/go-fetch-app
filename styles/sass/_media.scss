@@ -10,6 +10,11 @@
     .gif-container:last-child {
         grid-column: 2 / 3;
     }
+
+    // Dog search styling
+    .dog-search-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 /* Portrait tablet and small desktops */
@@ -24,16 +29,14 @@
         font-size: 1.7rem;
     }
 
-    .dog-origin-label,
-    .dog-search-results h2 {
+    .dog-origin-label {
         font-size: 1rem;
     }
 
     .dog-select,
     .dog-name-search,
     .button-search,
-    .instructions,
-    .dog-search-results {
+    .instructions {
         font-size: 0.8rem;
     }
 }
@@ -48,7 +51,7 @@
         align-items: center;
         flex-direction: column;
         padding-top: 50px;
-        // display: none;
+        display: none;
     }
 
     .show-list {
