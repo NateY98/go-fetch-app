@@ -43,6 +43,10 @@
 /* Landscape phone to portrait tablet */
 @media (max-width: 768px) {
     // Header styling
+    header {
+        padding-bottom: 30px;
+    }
+
     .header-nav {
         flex-direction: column;
     }
@@ -51,11 +55,13 @@
         align-items: center;
         flex-direction: column;
         padding-top: 50px;
-        display: none;
+        height: 0;
+        visibility: hidden;
     }
 
     .show-list {
-        display: block;
+        height: 170px;
+        visibility: visible;
     }
 
     .list-item {
@@ -135,6 +141,12 @@
 
     .button-hamburger {
         font-size: 1.2rem;
+    }
+
+    // Scroll up button styling
+    .button-up {
+        right: 10px;
+        font-size: 2rem;
     }
 
     // Footer styling

@@ -544,6 +544,54 @@ h1 {
   margin: 0 auto;
 }
 
+.button-up {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background: transparent;
+  font-size: 2.5rem;
+  cursor: pointer;
+  -webkit-animation: bounce 1s infinite;
+          animation: bounce 1s infinite;
+}
+
+.button-up:hover,
+.button-up:focus {
+  color: #ffffff;
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
 footer {
   position: fixed;
   right: 0;
@@ -612,6 +660,9 @@ footer {
 
 /* Landscape phone to portrait tablet */
 @media (max-width: 768px) {
+  header {
+    padding-bottom: 30px;
+  }
   .header-nav {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -627,10 +678,12 @@ footer {
         -ms-flex-direction: column;
             flex-direction: column;
     padding-top: 50px;
-    display: none;
+    height: 0;
+    visibility: hidden;
   }
   .show-list {
-    display: block;
+    height: 170px;
+    visibility: visible;
   }
   .list-item {
     margin: 20px 0;
@@ -710,6 +763,10 @@ footer {
   }
   .button-hamburger {
     font-size: 1.2rem;
+  }
+  .button-up {
+    right: 10px;
+    font-size: 2rem;
   }
   .footer-wrapper {
     font-size: 0.6rem;
