@@ -540,10 +540,51 @@ h1 {
 }
 
 .button-up {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
   border: 1px solid transparent;
   border-radius: 50%;
   background: transparent;
-  font-size: 2rem;
+  font-size: 2.5rem;
+  cursor: pointer;
+  -webkit-animation: bounce 1s infinite;
+          animation: bounce 1s infinite;
+}
+
+.button-up:hover,
+.button-up:focus {
+  color: #ffffff;
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
 }
 
 footer {
@@ -715,6 +756,10 @@ footer {
   }
   .button-hamburger {
     font-size: 1.2rem;
+  }
+  .button-up {
+    right: 10px;
+    font-size: 2rem;
   }
   .footer-wrapper {
     font-size: 0.6rem;
