@@ -539,6 +539,13 @@ h1 {
   margin: 0 auto;
 }
 
+.button-up {
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background: transparent;
+  font-size: 2rem;
+}
+
 footer {
   position: fixed;
   right: 0;

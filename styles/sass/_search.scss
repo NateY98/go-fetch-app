@@ -84,9 +84,18 @@
     display: none;
 }
 
+// Instrution message styling
 .instructions {
     text-align: center;
     padding-bottom: 40px;
     max-width: 80%;
     margin: 0 auto;
+}
+
+// Scroll up button styling
+.button-up {
+    border: 1px solid transparent;
+    border-radius: 50%;
+    background: transparent;
+    font-size: 2rem;
 }
