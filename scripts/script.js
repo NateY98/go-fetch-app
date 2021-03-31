@@ -4,6 +4,9 @@ const dogApp = {};
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////Global variables//////////////////////////////////////////////
 // Store the DOM element inside the dogApp object
+dogApp.pawButton = document.querySelector(".button-hamburger");
+dogApp.scrollUpButton = document.querySelector(".button-up");
+dogApp.headerListContainer = document.querySelector(".header-list");
 dogApp.dogGifContainer = document.querySelector(".dog-gif");
 dogApp.dogSearchContainer = document.querySelector(".dog-search-container");
 dogApp.selectElement = document.querySelector(".dog-select");
@@ -57,6 +60,38 @@ dogApp.openDogSearch = () => {
         dogApp.errorGifContainer.innerHTML = "";
         dogApp.dogSearchSection.classList.remove("dog-search");
         dogApp.dogGifContainer.classList.add("dog-gif-toggle");
+    });
+};
+
+// Toggle paw button to open the navigation menu
+dogApp.pawButtonEvent = () => {
+    dogApp.pawButton.addEventListener("click", () => {
+        dogApp.headerListContainer.classList.toggle("show-list");
+    });
+};
+
+// Scroll to top of the page button
+dogApp.scrollUpButtonEvent = () => {
+    dogApp.scrollUpButton.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth",
+        });
+    });
+};
+
+// Show the scrollUpButton by listening the scroll event
+dogApp.scrollPositionEvent = () => {
+    window.addEventListener("scroll", () => {
+        // Test the position of the scroll to show the scrollUpButton
+        if (document.querySelector("body").getBoundingClientRect().top < -800) {
+            dogApp.scrollUpButton.style.visibility = "visible";
+            // Calling the scrollUpButton function
+            dogApp.scrollUpButtonEvent();
+        } else {
+            dogApp.scrollUpButton.style.visibility = "hidden";
+        }
     });
 };
 
@@ -353,6 +388,8 @@ dogApp.searchDogEvent = () => {
 
 // Function init to kick off the app
 dogApp.init = () => {
+    // Calling the pawButtonEvent function
+    dogApp.pawButtonEvent();
     // Calling the logoHeaderButton function
     dogApp.logoHeaderButton();
     // Calling the openDogSearch function
@@ -365,6 +402,8 @@ dogApp.init = () => {
     dogApp.getGif();
     // Calling the serachDogEvent function
     dogApp.searchDogEvent();
+    // Calling the scrollPositionEvent function
+    dogApp.scrollPositionEvent();
 };
 
 dogApp.init();
