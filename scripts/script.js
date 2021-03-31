@@ -128,7 +128,9 @@ dogApp.dogSearchResults = (
     const dogResultsToDisplay = `
                 <div class="dog-search-results">
                     <div class="dog-image">
-                        <img src=${imageUrl} alt="${dogName}"/>
+                        <img src=${imageUrl} alt="${
+        imageUrl ? dogName : "Image is not available"
+    }"/>
                     </div>
                     <div class="dog-info-container">
                         <h2>${dogName}</h2>
