@@ -1,57 +1,62 @@
 // Style for wrapper in header
 .header-wrapper {
-    @include wrapper;
+  @include wrapper;
 }
 
 // Styles for header
 header {
-    padding: 50px 0;
-    background: $second-bg-color1;
+  padding: 50px 0;
+  background: $second-bg-color1;
 }
 
 // Remove margin from the grouping of lists in the main nav
 .header-list {
-    display: flex;
-    margin: 0;
+  display: flex;
+  margin: 0;
+  align-items: center;
 }
 
 // Spacing out the list items
 .list-item {
-    margin: 0 20px;
-    font-size: 1.5rem;
-    text-transform: uppercase;
+  margin: 0 20px;
+  font-size: 1.5rem;
+  text-transform: uppercase;
 }
 
 // links in the navigation menu styles
 .list-item a {
-    background: $second-bg-color2;
-    padding: 5px 8px;
-    border-radius: 5px;
-    color: $primary-white-color;
+  background: $second-bg-color2;
+  padding: 5px 8px;
+  border-radius: 5px;
+  color: $primary-white-color;
 }
 
 .list-item a:hover,
 .list-item a:focus {
-    color: $primary-black-color;
-    transition: 200ms ease-in-out;
+  color: $primary-black-color;
+  transition: 200ms ease-in-out;
 }
 
 // Arranging the logo and main nav to fit on the page
 .header-nav {
-    display: flex;
-    justify-content: space-between;
-    position: relative;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
 }
 
 // Styling for the hamburger menu button
 .button-hamburger {
-    position: absolute;
-    right: 10px;
-    top: -11px;
-    padding: 5px;
-    border: 1px solid transparent;
-    border-radius: 50%;
-    font-size: 1.5rem;
-    cursor: pointer;
-    visibility: hidden;
+  position: absolute;
+  right: 10px;
+  top: -11px;
+  padding: 5px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.header-logo {
+  flex: 0 1 200px;
 }
