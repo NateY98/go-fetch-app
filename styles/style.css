@@ -352,6 +352,9 @@ header {
   display: -ms-flexbox;
   display: flex;
   margin: 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .list-item {
@@ -394,6 +397,12 @@ header {
   font-size: 1.5rem;
   cursor: pointer;
   visibility: hidden;
+}
+
+.header-logo {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 200px;
+          flex: 0 1 200px;
 }
 
 .main-wrapper {
@@ -661,7 +670,7 @@ footer {
 /* Landscape phone to portrait tablet */
 @media (max-width: 768px) {
   header {
-    padding-bottom: 30px;
+    padding-bottom: 10px;
   }
   .header-nav {
     -webkit-box-orient: vertical;
@@ -677,7 +686,7 @@ footer {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    padding-top: 50px;
+    padding-top: 20px;
     height: 0;
     visibility: hidden;
   }
@@ -690,6 +699,10 @@ footer {
   }
   .button-hamburger {
     visibility: visible;
+  }
+  .header-logo {
+    width: 200px;
+    padding-left: 20px;
   }
   .form-container {
     -webkit-box-orient: vertical;
@@ -733,6 +746,12 @@ footer {
 
 /* Landscape phones and down */
 @media (max-width: 600px) {
+  .header-logo {
+    width: 170px;
+  }
+  .header-list {
+    padding-top: 5px;
+  }
   .dog-gif {
     -ms-grid-columns: (1fr)[2];
         grid-template-columns: repeat(2, 1fr);
@@ -761,8 +780,14 @@ footer {
   .list-item {
     font-size: 1rem;
   }
+  .header-list {
+    padding-top: 0;
+  }
   .button-hamburger {
     font-size: 1.2rem;
+  }
+  .header-logo {
+    width: 150px;
   }
   .button-up {
     right: 10px;

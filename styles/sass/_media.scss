@@ -1,156 +1,178 @@
 @media (max-width: 1150px) {
-    // Gif section styling
-    .dog-gif {
-        width: 80vw;
-        margin: 0 auto;
-        grid-template-columns: repeat(3, 1fr);
-        grid-auto-rows: auto;
-    }
+  // Gif section styling
+  .dog-gif {
+    width: 80vw;
+    margin: 0 auto;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+  }
 
-    .gif-container:last-child {
-        grid-column: 2 / 3;
-    }
+  .gif-container:last-child {
+    grid-column: 2 / 3;
+  }
 
-    // Dog search styling
-    .dog-search-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  // Dog search styling
+  .dog-search-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* Portrait tablet and small desktops */
 @media (max-width: 940px) {
-    // Header styling
-    .list-item {
-        font-size: 1.2rem;
-    }
+  // Header styling
+  .list-item {
+    font-size: 1.2rem;
+  }
 
-    // Search styling
-    h1 {
-        font-size: 1.7rem;
-    }
+  // Search styling
+  h1 {
+    font-size: 1.7rem;
+  }
 
-    .dog-origin-label {
-        font-size: 1rem;
-    }
+  .dog-origin-label {
+    font-size: 1rem;
+  }
 
-    .dog-select,
-    .dog-name-search,
-    .button-search,
-    .instructions {
-        font-size: 0.8rem;
-    }
+  .dog-select,
+  .dog-name-search,
+  .button-search,
+  .instructions {
+    font-size: 0.8rem;
+  }
 }
 /* Landscape phone to portrait tablet */
 @media (max-width: 768px) {
-    // Header styling
-    header {
-        padding-bottom: 30px;
-    }
+  // Header styling
+  header {
+    padding-bottom: 10px;
+  }
 
-    .header-nav {
-        flex-direction: column;
-    }
+  .header-nav {
+    flex-direction: column;
+  }
 
-    .header-list {
-        align-items: center;
-        flex-direction: column;
-        padding-top: 50px;
-        height: 0;
-        visibility: hidden;
-    }
+  .header-list {
+    align-items: center;
+    flex-direction: column;
+    padding-top: 20px;
+    height: 0;
+    visibility: hidden;
+  }
 
-    .show-list {
-        height: 170px;
-        visibility: visible;
-    }
+  .show-list {
+    height: 170px;
+    visibility: visible;
+  }
 
-    .list-item {
-        margin: 20px 0;
-    }
+  .list-item {
+    margin: 20px 0;
+  }
 
-    .button-hamburger {
-        visibility: visible;
-    }
+  .button-hamburger {
+    visibility: visible;
+  }
 
-    // Sog search section styling
-    .form-container {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
+  .header-logo {
+    width: 200px;
+    padding-left: 20px;
+  }
 
-    .dropdown-form {
-        align-items: center;
-        padding-bottom: 30px;
-    }
+  // Sog search section styling
+  .form-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 
-    .dog-search-container {
-        grid-template-columns: 1fr;
-    }
+  .dropdown-form {
+    align-items: center;
+    padding-bottom: 30px;
+  }
 
-    // Dog search results styles
-    .dog-search-results {
-        flex-direction: row;
-    }
+  .dog-search-container {
+    grid-template-columns: 1fr;
+  }
 
-    .dog-info-container {
-        padding-top: 0;
-        padding-left: 10px;
-        flex: 1 0 300px;
-    }
+  // Dog search results styles
+  .dog-search-results {
+    flex-direction: row;
+  }
 
-    .error-message {
-        font-size: 0.7rem;
-    }
+  .dog-info-container {
+    padding-top: 0;
+    padding-left: 10px;
+    flex: 1 0 300px;
+  }
+
+  .error-message {
+    font-size: 0.7rem;
+  }
 }
 
 /* Landscape phones and down */
 @media (max-width: 600px) {
-    // Gif section styling
-    .dog-gif {
-        grid-template-columns: repeat(2, 1fr);
-        row-gap: 20px;
-        padding-bottom: 20px;
-    }
+  // Header styling
+  .header-logo {
+    width: 170px;
+  }
 
-    // Dog GIFs container style
-    .gif-container {
-        padding: 20px 10px;
-    }
+  .header-list {
+    padding-top: 5px;
+  }
 
-    // Dog search results styles
-    h1 {
-        font-size: 1.3rem;
-    }
+  // Gif section styling
+  .dog-gif {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 20px;
+    padding-bottom: 20px;
+  }
 
-    .dog-search-results {
-        flex-direction: column;
-    }
+  // Dog GIFs container style
+  .gif-container {
+    padding: 20px 10px;
+  }
 
-    .dog-info-container {
-        padding-top: 20px;
-    }
+  // Dog search results styles
+  h1 {
+    font-size: 1.3rem;
+  }
+
+  .dog-search-results {
+    flex-direction: column;
+  }
+
+  .dog-info-container {
+    padding-top: 20px;
+  }
 }
 
 /* Landscape phones and down */
 @media (max-width: 480px) {
-    // Header styling
-    .list-item {
-        font-size: 1rem;
-    }
+  // Header styling
+  .list-item {
+    font-size: 1rem;
+  }
 
-    .button-hamburger {
-        font-size: 1.2rem;
-    }
+  .header-list {
+    padding-top: 0;
+  }
 
-    // Scroll up button styling
-    .button-up {
-        right: 10px;
-        font-size: 2rem;
-    }
+  .button-hamburger {
+    font-size: 1.2rem;
+  }
 
-    // Footer styling
-    .footer-wrapper {
-        font-size: 0.6rem;
-    }
+  .header-logo {
+    width: 150px;
+  }
+
+  // Scroll up button styling
+  .button-up {
+    right: 10px;
+    font-size: 2rem;
+  }
+
+  // Footer styling
+  .footer-wrapper {
+    font-size: 0.6rem;
+  }
 }
