@@ -4,17 +4,9 @@ const dogApp = {};
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////Global variables//////////////////////////////////////////////
 // Store the DOM element inside the dogApp object
-dogApp.pawButton = document.querySelector(".button-hamburger");
 dogApp.scrollUpButton = document.querySelector(".button-up");
-dogApp.headerListContainer = document.querySelector(".header-list");
 dogApp.dogGifContainer = document.querySelector(".dog-gif");
 dogApp.dogSearchContainer = document.querySelector(".dog-search-container");
-dogApp.selectElement = document.querySelector(".dog-select");
-dogApp.searchInput = document.querySelector(".dog-name-search");
-dogApp.searchButton = document.querySelector(".button-search");
-dogApp.dogSearchButton = document.querySelector(".dog-search-button");
-dogApp.dogGifButton = document.querySelector(".gif-button");
-dogApp.logoButton = document.querySelector(".logo-button");
 dogApp.dogSearchSection = document.querySelector(".dog-search");
 dogApp.errorGifContainer = document.querySelector(".error-gif-container");
 dogApp.errorSearchContainer = document.querySelector(".error-search-container");
@@ -40,7 +32,8 @@ dogApp.sectionEvent = () => {
 
 // Go back to GIF page when logo is clicked
 dogApp.logoHeaderButton = () => {
-    dogApp.logoButton.addEventListener("click", function () {
+    const logoButton = document.querySelector(".logo-button");
+    logoButton.addEventListener("click", function () {
         dogApp.errorGifContainer.innerHTML = "";
         dogApp.sectionEvent();
     });
@@ -48,14 +41,16 @@ dogApp.logoHeaderButton = () => {
 
 // Display the GIF section and hide the dog-search section when "GIF" button is clicked
 dogApp.openGif = () => {
-    dogApp.dogGifButton.addEventListener("click", function () {
+    const dogGifButton = document.querySelector(".gif-button");
+    dogGifButton.addEventListener("click", function () {
         dogApp.sectionEvent();
     });
 };
 
 // Display the dog-search section and hide the GIF section when "DOG SEARCH" button is clicked
 dogApp.openDogSearch = () => {
-    dogApp.dogSearchButton.addEventListener("click", function () {
+    const dogSearchButton = document.querySelector(".dog-search-button");
+    dogSearchButton.addEventListener("click", function () {
         // Empty the innerHTML of dogApp.errorGifContainer before displaying the new results
         dogApp.errorGifContainer.innerHTML = "";
         dogApp.dogSearchSection.classList.remove("dog-search");
@@ -65,8 +60,10 @@ dogApp.openDogSearch = () => {
 
 // Toggle paw button to open the navigation menu
 dogApp.pawButtonEvent = () => {
-    dogApp.pawButton.addEventListener("click", () => {
-        dogApp.headerListContainer.classList.toggle("show-list");
+    const pawButton = document.querySelector(".button-hamburger");
+    const headerListContainer = document.querySelector(".header-list");
+    pawButton.addEventListener("click", () => {
+        headerListContainer.classList.toggle("show-list");
     });
 };
 
@@ -126,37 +123,32 @@ dogApp.dogSearchResults = (
     dogApp.errorSearchContainer.innerHTML = "";
     // Create the HTML elements for to display the resuls on the page
     const dogResultsToDisplay = `
-                <div class="dog-search-results">
-                    <div class="dog-image">
-                        <img src=${imageUrl} alt="${
-        imageUrl ? dogName : "Image is not available"
-    }"/>
-                    </div>
-                    <div class="dog-info-container">
-                        <h2>${dogName}</h2>
-                        <p><span>Origin:</span> ${
-                            dogOrigin ? dogOrigin : "N/A"
-                        }</p>
-                        <p><span>Group:</span> ${
-                            dogGroup ? dogGroup : "N/A"
-                        }</p>
-                        <p>-----------</p>
-                        <ul class="dog-info-list">
-                            <li class="dog-list-item"><span>Role:</span> ${
-                                dogRole ? dogRole : "N/A"
-                            }</li>
-                            <li class="dog-list-item"><span>Traits:</span> ${
-                                dogTraits ? dogTraits : "N/A"
-                            }</li>
-                            <li class="dog-list-item"><span>Average weight:</span> ${
-                                dogWeight ? dogWeight : "N/A"
-                            } (kg)</li>
-                            <li class="dog-list-item"><span>Life span:</span> ${
-                                dogLife ? dogLife : "N/A"
-                            }</li>
-                        </ul>
-                    </div>
-                </div>`;
+<div class="dog-search-results">
+    <div class="dog-image">
+        <img src=${imageUrl} 
+            alt="${imageUrl ? dogName : "Image is not available"}"/>
+    </div>
+    <div class="dog-info-container">
+        <h2>${dogName}</h2>
+        <p><span>Origin:</span> ${dogOrigin ? dogOrigin : "N/A"}</p>
+        <p><span>Group:</span> ${dogGroup ? dogGroup : "N/A"}</p>
+        <p>-----------</p>
+        <ul class="dog-info-list">
+            <li class="dog-list-item"><span>Role:</span> 
+            ${dogRole ? dogRole : "N/A"}
+            </li>
+            <li class="dog-list-item"><span>Traits:</span> 
+            ${dogTraits ? dogTraits : "N/A"}
+            </li>
+            <li class="dog-list-item"><span>Average weight:</span> 
+            ${dogWeight ? dogWeight : "N/A"} (kg)
+            </li>
+            <li class="dog-list-item"><span>Life span:</span> 
+            ${dogLife ? dogLife : "N/A"}
+            </li>
+        </ul>
+    </div>
+</div>`;
     //   Append the dogGif in the body element
     dogApp.dogSearchContainer.insertAdjacentHTML(
         "beforeend",
@@ -316,7 +308,8 @@ dogApp.getDogInfo = (query) => {
 
 // Function to listen to the change event from options of select
 dogApp.dogOriginEvent = (arrayOfDog) => {
-    dogApp.selectElement.addEventListener("change", function () {
+    const selectElement = document.querySelector(".dog-select");
+    selectElement.addEventListener("change", function () {
         // Empty dogApp.dogSearchContainer content
         dogApp.dogSearchContainer.innerHTML = "";
         // loop through the object of dog array
@@ -374,37 +367,30 @@ dogApp.dogOriginEvent = (arrayOfDog) => {
 
 // Function to trigger the search button click event
 dogApp.searchDogEvent = () => {
-    dogApp.searchButton.addEventListener("click", function (e) {
+    const searchButton = document.querySelector(".button-search");
+    const searchInput = document.querySelector(".dog-name-search");
+    searchButton.addEventListener("click", function (e) {
         // Prevent the page from refeshing
         e.preventDefault();
-        // Empty the innerHTML of dogApp.errorSearchContainer before displaying the new results
+        // Empty the innerHTML
         dogApp.errorSearchContainer.innerHTML = "";
-        // Empty the innerHTML of dogSearchContainer before displaying the new results
         dogApp.dogSearchContainer.innerHTML = "";
         // Calling function dogApp.getDogInfo function
-        dogApp.getDogInfo(dogApp.searchInput.value);
+        dogApp.getDogInfo(searchInput.value);
         // Empty the input value when click the search button
-        dogApp.searchInput.value = "";
+        searchInput.value = "";
     });
 };
 
 // Function init to kick off the app
 dogApp.init = () => {
-    // Calling the pawButtonEvent function
     dogApp.pawButtonEvent();
-    // Calling the logoHeaderButton function
     dogApp.logoHeaderButton();
-    // Calling the openDogSearch function
     dogApp.openDogSearch();
-    // Calling the openGif function
     dogApp.openGif();
-    // Calling the getDogBreed API call function
     dogApp.getDogBreed();
-    // Calling the getGif API call function
     dogApp.getGif();
-    // Calling the serachDogEvent function
     dogApp.searchDogEvent();
-    // Calling the scrollPositionEvent function
     dogApp.scrollPositionEvent();
 };
 
