@@ -22,6 +22,7 @@
     background: $second-bg-color2
         url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png)
         95% center no-repeat;
+    cursor: pointer;
 }
 
 // Styles for the labels
@@ -41,6 +42,7 @@
     margin-left: -17px;
     border: 1px solid $primary-black-color;
     border-radius: 0;
+    cursor: pointer;
 }
 
 // Dog search container styles
